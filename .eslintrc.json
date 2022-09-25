@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "airbnb"],
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+   "no-unused-vars": "warn",
+   "import/prefer-default-export": "off",
+   "no-param-reassign": 0,
+   "no-mixed-spaces-and-tabs": 0,
+   "import/extensions": 0,
+   "import/no-unresolved": 0,
+   "no-console": "off",
+   "no-tabs": "off",
+   "react/prop-types": "off",
+   "react/no-unescaped-entities": "off",
+   "no-undef": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/anchor-is-valid": "off"
+  },
+  "plugins": ["react"]
 }
