@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Header:NextComponentType = () => (
-  <div className="flex py-5 leading-[34px] tracking-tighter font-[inter] container mx-auto px-14">
+  <div className="flex py-5 leading-[34px] tracking-tighter font-[inter] container mx-auto">
     <div className="w-2/12 leading-[34px] flex">
       <Link href="/pages">
         <a className="flex">

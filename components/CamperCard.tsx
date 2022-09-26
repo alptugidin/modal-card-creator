@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const CamperCard = () => (
 
-  <div className="w-[800px] h-[468px] rounded-[40px] flex flex-row bg-white absolute -top-[234px] left-14 overflow-hidden z-20">
+  <div className="w-[800px] h-[468px] rounded-[40px] flex flex-row bg-white absolute -top-[234px] left-0 overflow-hidden z-20">
     {/* left */}
     <div className="w-1/2 p-10 flex-col">
       <div className="h-1/2 flex flex-col">

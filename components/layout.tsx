@@ -1,13 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import Header from './Header';
+import store from '../redux/store';
 
 const Layout = ({ children }:any) => (
-  <div>
-    <div className="bg-gradient-to-b from-white to-[#E3F2F7]">
-      <Header />
-      <main>{children}</main>
-    </div>
-  </div>
+  <Provider store={store}>
+    <Header />
+    <main>{children}</main>
+  </Provider>
 );
 
 export default Layout;

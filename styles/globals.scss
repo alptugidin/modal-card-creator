@@ -4,13 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
+
 $base-color: #7D4AEA;
+
+$theme-colors: (
+        "black":#000,
+        "orange":#F37C34,
+        "darkgrey":#777777,
+        "lightgrey":#DDDDDD,
+        "white":#fff
+);
+
+$count:1;
+@each $name, $hex in $theme-colors{
+    .theme-#{$count} {
+      background-color: $hex;
+    }
+    $count: $count + 1;
+}
 
 .base-color-bg {
   background-color: $base-color;
 }
 
 .base-color {
+  color: $base-color;
+}
+
+.base-color-text{
   color: $base-color;
 }
 
@@ -21,4 +42,8 @@ $base-color: #7D4AEA;
 .ccc{
   background: linear-gradient(239.75deg, rgba(255, 255, 255, 0.7) 1.2%, rgba(255, 255, 255, 0) 70.51%);
   border-radius: 40px 40px 0px 0px;
+}
+
+.outline-none{
+  outline-offset: 0;
 }
