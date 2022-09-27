@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 import apperanceReducer from '../features/appearanceSlice';
+import targetingReducer from '../features/targetingSlice';
 
 const store = configureStore({
   reducer: {
     appearance: apperanceReducer,
+    targeting: targetingReducer,
   },
 });
 
