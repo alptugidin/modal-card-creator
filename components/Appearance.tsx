@@ -52,10 +52,9 @@ const Appearance = () => {
           Appearance
           <span className="font-medium"> (Size, colors, logo)</span>
         </span>
-
       </div>
+
       <div className="flex">
-        {/* Size selector */}
         <div className="basis-1/3">
           <div>
             <p className="font-[Inter] font-medium mt-7">Size</p>

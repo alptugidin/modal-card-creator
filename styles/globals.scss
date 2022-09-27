@@ -23,12 +23,16 @@ $count:1;
     $count: $count + 1;
 }
 
+.base-color {
+  color: $base-color;
+}
+
 .base-color-bg {
   background-color: $base-color;
 }
 
-.base-color {
-  color: $base-color;
+.base-color-border {
+  border-color: $base-color;
 }
 
 .base-color-text{
@@ -46,4 +50,16 @@ $count:1;
 
 .outline-none{
   outline-offset: 0;
+}
+
+input::-webkit-calendar-picker-indicator {
+  opacity:0;
+}
+
+input[type="text"]{
+  color : transparent;
+  text-shadow : 0 0 0 #000;
+}
+input[type="text"]:focus{
+  outline : none;
 }

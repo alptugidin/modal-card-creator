@@ -1,6 +1,4 @@
-import React, {
-  createRef, LegacyRef, RefObject, useEffect, useRef,
-} from 'react';
+import React from 'react';
 import ImageUploader from './ImageUploader';
 
 const Content = () => {

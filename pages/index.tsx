@@ -6,6 +6,8 @@ import CamperCardTransparent from '../components/CamperCardTransparent';
 import ModalCardGenerator from '../components/ModalCardGenerator';
 import Appearance from '../components/Appearance';
 import Content from '../components/Content';
+import TargetingRules from '../components/TargetingRules';
+import SettingsAndCode from '../components/SettingsAndCode';
 
 const Home: NextPageWithLayout = () => (
   <div className="pb-56">
@@ -97,6 +99,8 @@ const Home: NextPageWithLayout = () => (
       <ModalCardGenerator />
       <Appearance />
       <Content />
+      <TargetingRules />
+      <SettingsAndCode />
     </div>
 
   </div>
