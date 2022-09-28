@@ -11,7 +11,7 @@ const CheckBox = () => {
       onClick={handleCheck}
       className={`w-[18px] h-[18px] bg-gray-100 border border-gray-400 rounded ${check ? 'base-color-bg base-color-border' : ''} `}
     >
-      {check && <img src="/check.svg" alt="check" className="mx-auto" />}
+      {check && <img src="/public/check.svg" alt="check" className="mx-auto" />}
     </button>
   );
 };

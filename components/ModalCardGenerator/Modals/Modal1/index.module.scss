@@ -1,0 +1,129 @@
+.body {
+    @apply bg-white rounded-lg flex flex-col justify-around items-center relative
+}
+
+.body-md{
+    @apply
+    w-[480px] h-[446px] px-20 py-8
+}
+
+.body-sm {
+    @apply w-[380px] h-[353px]  px-10 py-4
+}
+
+.body-lg {
+    @apply w-[580px] h-[539px]  px-20 py-12
+}
+
+.fp {
+    @apply font-[Poppins] font-semibold
+}
+
+.fp-md{
+    @apply text-2xl
+}
+
+.fp-lg {
+    @apply text-4xl
+}
+
+.sp {
+    @apply font-[Inter]
+}
+
+.sp-md{
+    @apply text-xl
+}
+
+.sp-sm{
+    @apply text-sm
+}
+
+.sp-lg {
+    @apply text-2xl
+}
+
+.form {
+    @apply
+    w-full
+}
+
+.input {
+    @apply w-full bg-white rounded border rounded-lg
+}
+
+.input-md {
+    @apply h-[47px] pl-3
+}
+
+.input-sm {
+    @apply h-[35px] pl-2
+}
+
+.input-lg {
+    @apply h-[50px] pl-4 text-xl
+}
+
+.btndiv {
+    @apply flex w-full gap-3
+}
+
+.btn1, .btn2 {
+    @apply border rounded-lg w-full font-[Inter]
+}
+
+.btn1-md, .btn2-md {
+    @apply
+    h-[47px]
+}
+
+.btn1-sm, .btn2-sm {
+    @apply
+    h-[35px]
+}
+
+.btn1-lg, .btn2-lg {
+    @apply h-[50px]
+}
+
+
+.btn {
+    @apply bg-[#7D4AEA] text-white
+}
+
+
+.btn1-default {
+    @apply  text-white bg-[#7D4AEA]
+}
+.btn1-black {
+    @apply  text-white bg-[#000]
+}
+.btn1-orange {
+    @apply  text-white bg-[#F37C34]
+}
+.btn1-darkgrey {
+    @apply  text-white bg-[#777777]
+}
+
+.canceldiv {
+    @apply absolute
+}
+
+.canceldiv-md {
+    @apply right-3 top-3
+}
+
+.canceldiv-sm {
+    @apply right-2 top-2
+}
+
+.canceldiv-lg {
+    @apply right-5 top-5
+}
+
+
+.cancel-lg {
+    @apply w-14
+}
+
+
