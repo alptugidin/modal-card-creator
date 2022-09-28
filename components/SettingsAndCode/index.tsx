@@ -1,6 +1,6 @@
 import React from 'react';
-import EditInput from './EditInput';
-import CheckBox from './CheckBox';
+import EditInput from '../commons/EditInput';
+import CheckBox from '../commons/CheckBox';
 
 const SettingsAndCode = () => {
   const fn = () => {};
@@ -47,9 +47,7 @@ const SettingsAndCode = () => {
             </p>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 };

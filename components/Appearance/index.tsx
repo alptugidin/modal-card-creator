@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../redux/store';
-import { changePosition, changeSize } from '../features/appearanceSlice';
-import ImageUploader from './ImageUploader';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { changePosition, changeSize } from '../../features/appearanceSlice';
+import ImageUploader from '../commons/ImageUploader';
 
 const Appearance = () => {
   const dispatch = useAppDispatch();
@@ -106,7 +106,6 @@ const Appearance = () => {
             <ImageUploader type="Logo" />
           </div>
         </div>
-        <div className="basis-2/3">ss</div>
       </div>
     </div>
   );

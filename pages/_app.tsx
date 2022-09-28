@@ -1,3 +1,4 @@
+import React from 'react';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -15,5 +16,6 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page);
 
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return getLayout(<Component {...pageProps} />);
 }

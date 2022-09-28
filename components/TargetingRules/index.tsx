@@ -1,11 +1,10 @@
 import React from 'react';
-import Toggle from './Toggle';
-import CheckBox from './CheckBox';
+import Toggle from '../commons/Toggle';
+import CheckBox from '../commons/CheckBox';
 import DeviceSVG from './DeviceSVG';
-import EditInput from './EditInput';
+import EditInput from '../commons/EditInput';
 import LanguageSelector from './LanguageSelector';
 import SelectedLanguages from './SelectedLanguages';
-import SettingsAndCode from './SettingsAndCode';
 
 const TargetingRules = () => {
   const fn = () => {};

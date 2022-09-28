@@ -1,4 +1,8 @@
+const path = require('path');
+
 module.exports = {
+
+  
   "stories": [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)"
@@ -6,26 +10,26 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/preset-scss",
-    "storybook-css-modules-preset",
-    {
-      /**
-       * Fix Storybook issue with PostCSS@8
-       * @see https://github.com/storybookjs/storybook/issues/12668#issuecomment-773958085
-       */
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
   ],
   "framework": "@storybook/react",
   "core": {
-    "builder": "@storybook/builder-webpack5"
+    "builder": "@storybook/builder-webpack5",
   },
   "staticDirs": ['../public'],
+  
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        "style-loader",
+        "css-loader",
+        "postcss-loader",
+        // Add the sass loader to process scss files
+        "sass-loader",
+      ],
+    })
+    
+    return config
+  },
   
 }

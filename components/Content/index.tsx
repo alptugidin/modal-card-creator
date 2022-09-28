@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageUploader from './ImageUploader';
+import ImageUploader from '../commons/ImageUploader';
 
 const Content = () => {
   const fn = () => {};
@@ -8,9 +8,9 @@ const Content = () => {
 
     <div className="mt-24">
       <div className="flex items-center gap-4">
-        <img src="/stepTwo.svg" alt="stepTwo" />
+        <img src="/stepThree.svg" alt="stepTwo" />
         <span className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">
-          Content
+          Index
         </span>
       </div>
 
@@ -23,7 +23,7 @@ const Content = () => {
             {[...Array.from(Array(4).keys())].map((el) => (
               <form
                 key={el.toString()}
-                action=""
+                action="components/Content/index.tsx"
               >
                 <input
                   type="text"

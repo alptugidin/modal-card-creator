@@ -9,7 +9,7 @@ const CamperCard = () => (
       <div className="h-1/2 flex flex-col">
         <div className="h-1/2">
           <div className="w-fit mx-auto rounded-lg">
-            <Image src="/camper.png" width="106" height="38" className="rounded-full" />
+            <Image src="/camper.png" width="106" height="38" />
           </div>
         </div>
         <div className="h-1/2 flex flex-col justify-around">
@@ -28,7 +28,7 @@ const CamperCard = () => (
         </div>
       </div>
       <div className="h-1/2 flex flex-col justify-evenly justify-items-center gap-2 mt-5">
-        <form action="" className="w-fit mx-auto">
+        <form action="components/Showcase/CamperCard" className="w-fit mx-auto">
           <input
             type="text"
             placeholder="Email address"
@@ -45,11 +45,11 @@ const CamperCard = () => (
           <span className="text-sm text-gray-500">
             By signing up, you agree to
             {' '}
-            <a className="underline" href="#">Privacy Policy</a>
+            <a className="underline" href="components/Showcase/CamperCard#">Privacy Policy</a>
             {' '}
             and
             {' '}
-            <a className="underline" href="#">Terms of Use</a>
+            <a className="underline" href="components/Showcase/CamperCard#">Terms of Use</a>
             .
           </span>
         </div>
