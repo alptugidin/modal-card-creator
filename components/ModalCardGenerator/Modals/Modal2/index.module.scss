@@ -1,0 +1,61 @@
+//480 600
+
+.body-md {
+ @apply w-[480px] h-[600px] bg-white rounded-lg flex flex-col relative
+}
+
+.body-sm {
+ @apply w-[380px] h-[475px] bg-white rounded-lg flex flex-col relative
+}
+
+.body-lg {
+@apply w-[580px] h-[725px] bg-white rounded-lg flex flex-col relative
+}
+
+
+.c2{
+ @apply basis-1/2 flex flex-col items-center p-5
+}
+
+.c3 {
+ @apply basis-1/2 text-center flex flex-col justify-center font-[Inter]
+}
+
+.c3-sm {@apply gap-3}
+.c3-md {@apply gap-5}
+.c3-lg {@apply gap-5}
+
+.c4-sm{@apply text-2xl font-semibold}
+.c4-md{@apply text-3xl font-semibold}
+.c4-lg{@apply text-3xl font-semibold}
+
+.c5-sm{@apply text-2xl font-semibold}
+.c5-md{@apply text-3xl font-semibold}
+.c5-lg{@apply text-3xl font-semibold}
+
+.c6-sm {@apply basis-1/2 flex-col flex gap-3 w-full font-[Inter]}
+.c6-md {@apply basis-1/2 flex-col flex gap-5 w-full font-[Inter]}
+.c6-lg {@apply basis-1/2 flex-col flex gap-5 w-full font-[Inter]}
+
+.c7 {@apply border rounded-lg bg-white h-12}
+.c8 {@apply border rounded-lg bg-white h-12 text-white}
+
+.canceldiv {
+ @apply absolute right-3 top-3
+}
+
+.bg-black {
+ @apply bg-[#000]
+}
+
+.bg-darkgrey {
+ @apply bg-[#777777]
+}
+
+.bg-orange {
+ @apply bg-[#F37C34]
+}
+
+.bg-default {
+ @apply bg-[#7D4AEA]
+}

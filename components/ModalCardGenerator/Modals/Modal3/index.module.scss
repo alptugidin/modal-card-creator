@@ -1,0 +1,47 @@
+//380 434
+//480 549
+//580 661
+
+.bg-black {
+  @apply bg-[#000]
+}
+
+.bg-darkgrey {
+  @apply bg-[#777777]
+}
+
+.bg-orange {
+  @apply bg-[#F37C34]
+}
+
+.bg-default {
+  @apply bg-[#7D4AEA]
+}
+
+.text-black {@apply text-[#000]}
+.text-darkgrey {@apply text-[#777777]}
+.text-orange {@apply text-[#F37C34]}
+.text-default {@apply text-[#7D4AEA]}
+
+.body-sm {@apply w-[380px] h-[434px] rounded-lg bg-white p-8}
+.body-md {@apply w-[480px] h-[549px] rounded-lg bg-white p-8}
+.body-lg {@apply w-[580px] h-[661px] rounded-lg bg-white p-8}
+
+.c1{@apply flex flex-col text-center gap-3 font-[Inter]}
+.c2-md {@apply text-2xl}
+.c2-lg {@apply text-3xl}
+
+.c3-sm {@apply text-2xl font-semibold}
+.c3-md {@apply text-3xl font-semibold}
+.c3-lg {@apply text-5xl font-semibold}
+
+.c4-sm {@apply text-sm}
+.c4-md {@apply text-lg}
+.c4-lg {@apply text-2xl}
+
+.c5 {
+  @apply flex flex-col
+}
+
+
+

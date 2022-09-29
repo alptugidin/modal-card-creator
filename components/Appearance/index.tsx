@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as queryString from 'querystring';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { changePosition, changeSize } from '../../features/appearanceSlice';
+import {
+  changePosition, changeSize, setActiveColor,
+} from '../../features/appearanceSlice';
 import ImageUploader from '../commons/ImageUploader';
+import { setBG } from '../../features/setBG';
 
 const Appearance = () => {
   const dispatch = useAppDispatch();
   const size = useAppSelector((state) => state.appearance.size);
   const position = useAppSelector((state) => state.appearance.position);
-  const [color, setColor] = useState<number>(-1);
-
+  const colors = useAppSelector((state) => state.appearance.colors);
+  const activeColor = useAppSelector((state) => state.appearance.activeColor);
   const positionRadius = (place:number):string => {
     let output:string = '';
     if (place === 0) {
@@ -37,11 +41,9 @@ const Appearance = () => {
     }
   };
 
-  const colorPicker = (e:React.MouseEvent) => {
-    const { pos } = (e.currentTarget as HTMLButtonElement).dataset;
-    if (pos !== undefined) {
-      setColor(Number(pos));
-    }
+  const handleColorPick = (e:React.MouseEvent) => {
+    const { color } = (e.currentTarget as HTMLButtonElement).dataset;
+    dispatch(setActiveColor(color));
   };
 
   return (
@@ -92,14 +94,13 @@ const Appearance = () => {
 
             <p className="font-[Inter] font-medium mt-7">Colors</p>
             <div className="flex gap-2 mt-3">
-              {[...Array.from(Array(5).keys())].map((i) => (
+              {colors.map((col, i) => (
                 <button
                   type="button"
-                  data-pos={i}
-                  onClick={colorPicker}
+                  data-color={col}
+                  onClick={handleColorPick}
                   key={i.toString()}
-                  className={`w-[42px] h-[42px] rounded-lg ${color === i ? 'border-purple-400 border-2' : 'border'
-                      + ' border-gray-400'} theme-${i + 1}`}
+                  className={`w-[42px] transition-all h-[42px] rounded-lg border-2 border-white ${setBG(col)} ${col === activeColor ? 'border-green-500' : ''}`}
                 />
               ))}
             </div>

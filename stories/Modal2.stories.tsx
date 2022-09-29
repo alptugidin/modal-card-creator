@@ -1,22 +1,22 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Modal1 from '../components/ModalCardGenerator/Modals/Modal1';
-import '../components/ModalCardGenerator/Modals/Modal1/index.module.scss';
+import Modal2 from '../components/ModalCardGenerator/Modals/Modal2';
+import '../components/ModalCardGenerator/Modals/Modal2/index.module.scss';
 
 export default {
-  title: 'Modal1',
-  component: Modal1,
+  title: 'Modal2',
+  component: Modal2,
   argTypes: {
     color: {
       options: ['black', 'darkgrey', 'orange', 'default'],
       control: 'radio',
     },
   },
-} as ComponentMeta<typeof Modal1>;
+} as ComponentMeta<typeof Modal2>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof Modal1> = (args:any) => <Modal1 {...args} />;
+const Template: ComponentStory<typeof Modal2> = (args:any) => <Modal2 {...args} />;
 
 export const Sm = Template.bind({});
 Sm.args = { size: 'sm' };
