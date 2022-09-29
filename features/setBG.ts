@@ -1,5 +1,5 @@
 export const setBG = (param:string) : string => {
-  let output = '';
+  let output = 'bg-[#7D4AEA]';
   if (param === '#000') {
     output = 'bg-[#000]';
   }
