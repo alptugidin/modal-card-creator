@@ -1,7 +1,6 @@
 import React from 'react';
-import { setBG } from '../../../../features/setBG';
-import Modal1Stories from '../../../../stories/Modal1.stories';
 import { ModalTypeProp } from '../Modal1';
+import { setBG } from '../../../../features/setBG';
 
 const Modal13 = ({ color }:ModalTypeProp) => {
   const fn = () => {};

@@ -1,12 +1,14 @@
 import React from 'react';
-import Modal3 from '../../components/ModalCardGenerator/Modals/Modal3';
+import { useAppSelector } from '../../redux/store';
+import Modal13 from '../../components/ModalCardGenerator/Modals/Modal13';
 
-const Test = () => (
-  <div className="bg-gray-500 flex h-screen gap-5">
-    <Modal3 size="sm" color="black" />
-    <Modal3 size="md" color="default" />
-    <Modal3 size="lg" color="darkgrey" />
-  </div>
-);
+const Test = () => {
+  const activeColor = useAppSelector((state) => state.appearance.activeColor);
+  return (
+    <div>
+      <Modal13 size="sm" color={activeColor} />
+    </div>
+  );
+};
 
 export default Test;

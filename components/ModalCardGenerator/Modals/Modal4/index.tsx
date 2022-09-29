@@ -23,7 +23,7 @@ const Modal4 = ({ color, size }:ModalTypeProp) => {
         </div>
       </div>
       <div className="flex flex-col gap-4 mt-12 font-[Inter]">
-        <button type="button" className={`border border-gray-400 rounded-lg h-12 text-white ${setBG(color)}`}>Delete my profile</button>
+        <button onClick={() => console.log(setBG(color))} type="button" className={`border border-gray-400 rounded-lg h-12 text-white ${setBG(color)}`}>Delete my profile</button>
         <button type="button" className="border border-gray-400 rounded-lg h-12">Cancel</button>
       </div>
     </div>
