@@ -5,6 +5,14 @@ export const appearanceSlice = createSlice({
   initialState: {
     size: 'Medium',
     position: 4,
+    colors: [
+      '#000',
+      '#777777',
+      '#F37C34',
+      '#DDDDDD',
+      '#7D4AEA',
+    ],
+    activeColor: '#7D4AEA',
   },
   reducers: {
     changeSize: (state, action:PayloadAction<string>) => {
@@ -15,8 +23,12 @@ export const appearanceSlice = createSlice({
       state.position = action.payload;
     },
 
+    setActiveColor: (state, action) => {
+      state.activeColor = action.payload;
+    },
+
   },
 });
 
-export const { changeSize, changePosition } = appearanceSlice.actions;
+export const { changeSize, changePosition, setActiveColor } = appearanceSlice.actions;
 export default appearanceSlice.reducer;
