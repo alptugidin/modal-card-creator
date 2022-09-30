@@ -1,0 +1,34 @@
+.body {
+  @apply rounded-xl  w-[480px] h-[687px] relative font-[Inter] text-center;
+}
+
+.body {
+  background-color: var(--c);
+}
+
+.b2  {
+  @apply relative pt-[60px] flex flex-col p-10;
+}
+
+.svgDiv {
+  @apply absolute top-0 left-0 right-0 ml-auto mr-auto w-[120px] h-[120px] -top-[60px];
+}
+
+.text1 {
+  @apply font-semibold mt-5 text-center
+}
+
+.text1{
+  color: var(--c);
+}
+
+.text2 {
+  @apply text-4xl font-semibold mt-10
+}
+.text2{
+  color: var(--c);
+}
+
+.text3 {
+  @apply text-lg mt-5
+}

@@ -12,7 +12,7 @@ const Modal15 = () => {
       <div className="basis-1/2 font-[Inter] text-3xl font-semibold text-center flex items-center justify-center">
         <p>Let’s feedback</p>
       </div>
-      <div className="basis-1/2 flex justify-evenly items-center gap-">
+      <div className="basis-1/2 flex justify-evenly items-center">
         {emojis.map((emoji, i) => (
           <button
             type="button"

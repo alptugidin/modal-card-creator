@@ -1,0 +1,20 @@
+.body {
+  background-color: var(--c);
+  @apply rounded-lg w-[740px] h-[150px] p-5 flex gap-5 items-center relative;
+}
+
+.b2 {
+  @apply flex flex-col font-[Inter];
+  :first-child {
+    color: var(--c);
+    @apply text-2xl font-semibold;
+  }
+  :nth-child(2){
+    color: var(--c);
+    @apply text-lg
+  }
+}
+
+.cancel {
+  @apply absolute right-3 top-3
+}

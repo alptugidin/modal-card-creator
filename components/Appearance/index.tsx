@@ -13,6 +13,7 @@ const Appearance = () => {
   const position = useAppSelector((state) => state.appearance.position);
   const colors = useAppSelector((state) => state.appearance.colors);
   const activeColor = useAppSelector((state) => state.appearance.activeColor);
+  const style = useAppSelector((state) => state.appearance.style);
   const positionRadius = (place:number):string => {
     let output:string = '';
     if (place === 0) {
@@ -94,15 +95,20 @@ const Appearance = () => {
 
             <p className="font-[Inter] font-medium mt-7">Colors</p>
             <div className="flex gap-2 mt-3">
-              {colors.map((col, i) => (
+              {Object.values(style).map((col, i) => (
                 <button
                   type="button"
                   data-color={col}
-                  onClick={handleColorPick}
+                  onClick={() => {}}
                   key={i.toString()}
-                  className={`w-[42px] transition-all h-[42px] rounded-lg border-2 border-white ${setBG(col)} ${col === activeColor ? 'border-green-500' : ''}`}
+                  className={`w-[42px] transition-all h-[42px] rounded-lg border-2 border-white ${setBG(col)}`}
                 />
               ))}
+              {
+                Object.values(style).map((e) => (
+                  <p>{e}</p>
+                ))
+              }
             </div>
             <ImageUploader type="Logo" />
           </div>
