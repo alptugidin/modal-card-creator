@@ -4,4 +4,5 @@ export interface ModalProps {
   borderColor?:string;
   otherTextColor?:string;
   backgroundColor?:string;
+  inStory: boolean;
 }
