@@ -1,27 +1,33 @@
-import React from 'react';
-import { ModalTypeProp } from '../Modal1';
-import { setBG } from '../../../../features/setBG';
+import React, { CSSProperties } from 'react';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
+import style from './index.module.scss';
 
-const Modal5 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal5 = ({
+  inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
   return (
-    <div className="w-[480px] h-[283px] bg-white rounded-lg flex flex-col font-inter p-10 justify-center gap-7 text-center relative">
-      <div className="absolute right-3 top-3">
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
+      </button>
+      <div className={style.textDiv}>
+        <p>The file is on it's way</p>
+        <p>You’ll get an notified when the receiver has opened the email.</p>
       </div>
-      <div>
-        <p className="text-4xl font-semibold">The file is on it's way</p>
-      </div>
-      <div>
-        <p className="text-2xl">You’ll get an notified when the receiver has opened the email.</p>
-      </div>
-      <div>
-        <button
-          type="button"
-          className={`border border-gray-400 h-12 rounded-lg w-full text-white text-lg ${setBG(color)}`}
-        >
-          Go to dashboard
-        </button>
+      <div className={style.buttonDiv}>
+        <button type="button">Go to dashboard</button>
       </div>
     </div>
   );

@@ -1,129 +1,48 @@
 .body {
-    @apply bg-white rounded-lg flex flex-col justify-around items-center relative
+  @apply w-[480px] h-[446px] rounded-xl relative font-[Inter] p-10 flex flex-col items-center;
+  background-color: var(--bgColor);
 }
 
-.body-md{
-    @apply
-    w-[480px] h-[446px] px-20 py-8
+.svgDiv {
+  :first-child {
+    fill: var(--svgColor);
+  }
 }
 
-.body-sm {
-    @apply w-[380px] h-[353px]  px-10 py-4
+.textDiv {
+  @apply mt-5;
+  :first-child {
+    @apply text-3xl font-semibold text-center;
+  }
+  :nth-child(2) {
+    @apply text-xl text-center mt-5;
+  }
+
+  color: var(--textColor);
+
 }
 
-.body-lg {
-    @apply w-[580px] h-[539px]  px-20 py-12
+.inputDiv{
+  @apply flex items-center w-full mt-8;
+  :first-child {
+    @apply border rounded-lg h-12 w-full placeholder-gray-600 pl-6;
+    border-color: var(--borderColor);
+  }
 }
 
-.fp {
-    @apply font-[Poppins] font-semibold
+.btnDiv {
+  @apply flex w-full gap-5 mt-5 ;
+  :first-child{
+    @apply h-12 w-full border rounded-lg;
+    border-color: var(--borderColor);
+  }
+
+  :last-child {
+    @apply h-12 w-full border-[0] rounded-lg text-white;
+    background-color: var(--themeColor);
+  }
 }
 
-.fp-md{
-    @apply text-2xl
+.cancel {
+  @apply absolute right-3 top-3 outline-none border-[0];
 }
-
-.fp-lg {
-    @apply text-4xl
-}
-
-.sp {
-    @apply font-[Inter]
-}
-
-.sp-md{
-    @apply text-xl
-}
-
-.sp-sm{
-    @apply text-sm
-}
-
-.sp-lg {
-    @apply text-2xl
-}
-
-.form {
-    @apply
-    w-full
-}
-
-.input {
-    @apply w-full bg-white rounded border rounded-lg
-}
-
-.input-md {
-    @apply h-[47px] pl-3
-}
-
-.input-sm {
-    @apply h-[35px] pl-2
-}
-
-.input-lg {
-    @apply h-[50px] pl-4 text-xl
-}
-
-.btndiv {
-    @apply flex w-full gap-3
-}
-
-.btn1, .btn2 {
-    @apply border rounded-lg w-full font-[Inter]
-}
-
-.btn1-md, .btn2-md {
-    @apply
-    h-[47px]
-}
-
-.btn1-sm, .btn2-sm {
-    @apply
-    h-[35px]
-}
-
-.btn1-lg, .btn2-lg {
-    @apply h-[50px]
-}
-
-
-.btn {
-    @apply bg-[#7D4AEA] text-white
-}
-
-
-.btn2-default {
-    @apply  text-white bg-[#7D4AEA]
-}
-.btn2-black {
-    @apply  text-white bg-[#000]
-}
-.btn2-orange {
-    @apply  text-white bg-[#F37C34]
-}
-.btn2-darkgrey {
-    @apply  text-white bg-[#777777]
-}
-
-.canceldiv {
-    @apply absolute
-}
-
-.canceldiv-md {
-    @apply right-3 top-3
-}
-
-.canceldiv-sm {
-    @apply right-2 top-2
-}
-
-.canceldiv-lg {
-    @apply right-5 top-5
-}
-
-
-.cancel-lg {
-    @apply w-14
-}
-
-

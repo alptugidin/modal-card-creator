@@ -1,13 +1,18 @@
 .body {
-  @apply rounded-xl  w-[480px] h-[687px] relative font-[Inter] text-center;
+  @apply rounded-xl  w-[480px] h-[687px] relative font-[Inter];
+}
+
+.cancelDiv {
+  @apply absolute right-3 top-3;
 }
 
 .body {
   background-color: var(--c);
+
 }
 
 .b2  {
-  @apply relative pt-[60px] flex flex-col p-10;
+  @apply relative pt-[60px] flex flex-col px-12;
 }
 
 .svgDiv {
@@ -15,7 +20,8 @@
 }
 
 .text1 {
-  @apply font-semibold mt-5 text-center
+  @apply font-semibold mt-5 text-center;
+  color: #7D4AEA;
 }
 
 .text1{
@@ -23,12 +29,59 @@
 }
 
 .text2 {
-  @apply text-4xl font-semibold mt-10
+  @apply text-4xl font-semibold mt-10;
 }
 .text2{
   color: var(--c);
 }
 
 .text3 {
-  @apply text-lg mt-5
+  @apply text-xl mt-5
 }
+
+.text3 {
+  color: var(--c);
+}
+
+.roundedDivParent {
+  @apply flex justify-center items-center gap-2 mt-8;
+}
+
+.roundedDiv {
+  @apply w-[12px] h-[12px] rounded-full;
+
+}
+
+.roundedDiv {
+  @apply border-[0px];
+  background-color: var(--c);
+}
+
+.innerRounded {
+  @apply h-[12px] w-[12px] rounded-full;
+}
+
+.active {
+  background-color: var(--active);
+}
+
+
+.btnDiv {
+  @apply flex items-center justify-center mt-5 px-10 gap-5;
+  :first-child {
+    @apply border border-[1px] text-black ;
+    background-color: var(--bgc);
+    border-color: var(--bc);
+  }
+
+  :nth-child(2) {
+    @apply text-white border-transparent;
+    background-color: var(--tc);
+  }
+
+  button {
+    @apply h-12 w-full rounded-lg;
+  }
+}
+
+

@@ -1,31 +1,62 @@
-import React from 'react';
+import React, { ChangeEvent, CSSProperties, useState } from 'react';
 import style from './index.module.scss';
-import { ModalTypeProp } from '../Modal1';
-import CheckBox from '../../../commons/CheckBox';
-import RoundBox from './RoundBox';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
 
-const Modal3 = ({ size, color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal3 = ({
+  inStory = true, textColor, themeColor, backgroundColor, otherTextColor, borderColor,
+} :ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const [toggle, setToggle] = useState<string | null>('');
+  const items = [
+    { p: 'Starter', d: '1 free (then $15 per meember / month)' },
+    { p: 'Pro', d: '$19 per member/month' },
+    { p: 'Business', d: '$29 per member/month' },
+  ];
+  const handleOnClick = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const plan = (e.target as HTMLButtonElement).getAttribute('data-plan');
+    setToggle(plan);
+  };
   return (
-    <div className={style[`body-${size}`]}>
-      <div className={style.c1}>
-        <p className={[style[`c2-${size}`], style[`text-${color}`]].join(' ')}>PLANS</p>
-        <p className={style[`c3-${size}`]}>Choose best for you</p>
-        <p className={style[`c4-${size}`]}>Only pay for the capacity that you use.</p>
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <div className={style.textDiv}>
+        <p>PLANS</p>
+        <p>Choose best for you</p>
+        <p>Only pay for the capacity that you use.</p>
       </div>
-      <div className={style.c5}>
-        <div className={style[`c6-${size}`]}>
-          <RoundBox color="default" />
-          <p>Starter</p>
-        </div>
-        <div className={style[`c7-${size}`]}>
-          <RoundBox color="default" />
-          <p>Pro</p>
-        </div>
-        <div className={style[`c8-${size}`]}>
-          <RoundBox color="default" />
-          <p>Bussines</p>
-        </div>
+
+      <div className={style.optionDiv}>
+        {items.map((item) => (
+          <div className={style.option} key={item.p}>
+            <button
+              type="button"
+              data-plan={item.p}
+              onClick={handleOnClick}
+              className={style.optionRound}
+            >
+              {toggle === item.p && <div className={style.activeDiv} />}
+            </button>
+            <div className={style.optionTextDiv}>
+              <p>{item.p}</p>
+              <p>{item.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={style.btnDiv}>
+        <button type="button">Cancel</button>
+        <button type="button">Continue</button>
       </div>
     </div>
   );

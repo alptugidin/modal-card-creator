@@ -1,0 +1,67 @@
+.body {
+  background-color: var(--bgc);
+  @apply w-[480px] h-[507px] rounded-xl p-10 relative overflow-hidden font-[Inter];
+}
+
+
+.roof {
+  background-color: var(--roofColor);
+  @apply absolute top-0 w-full h-[10px] left-0;
+}
+
+.textDiv {
+  color: var(--textColor);
+  @apply text-center;
+  :first-child {
+    @apply text-3xl font-semibold
+  }
+  :nth-child(2) {
+    @apply text-xl px-5 mt-5
+  }
+}
+
+.inputDiv {
+  :first-child {
+    border-color: var(--borderColor);
+    @apply w-full rounded-lg h-12 border border-[1px] mt-10 pl-5 placeholder-gray-600;
+  }
+}
+
+.phoneDiv {
+  @apply flex mt-5;
+  :first-child {
+    @apply w-[98px] h-[47px] rounded-lg border border-[1px];
+  }
+  :nth-child(2) {
+    @apply w-full rounded-lg border border-[1px] ml-5 pl-5 placeholder-gray-600;
+  }
+}
+
+.selectX {
+  border-color: var(--borderColor);
+  @apply rounded-lg border border-[1px];
+}
+
+.phoneInput {
+  border-color: var(--borderColor);
+}
+
+.buttonDiv {
+  @apply flex justify-center mt-5 text-white
+}
+
+.suBtn {
+  background-color: var(--bgColor);
+  @apply h-12 w-full border border-[0] rounded-lg
+}
+
+.footerDiv {
+  @apply flex justify-between mt-5
+}
+
+.button {
+  @apply outline-none border-[0];
+  color: var(--textColor);
+}
+
+

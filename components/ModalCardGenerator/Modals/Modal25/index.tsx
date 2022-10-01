@@ -7,7 +7,7 @@ const Modal25 = () => {
   const fn = () => {};
   return (
     <div className={style.body} style={{ '--c': colors.backgroundColor } as CSSProperties}>
-      <button className={style.cancel}>
+      <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
       </button>
       <div className={style.b1}>

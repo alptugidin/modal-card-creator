@@ -1,47 +1,65 @@
-//380 434
-//480 549
-//580 661
-
-.bg-black {
-  @apply bg-[#000]
+.body {
+  @apply w-[480px] h-[549px] rounded-xl relative font-[Inter] p-10 flex flex-col ;
+  background-color: var(--bgColor);
 }
 
-.bg-darkgrey {
-  @apply bg-[#777777]
-}
+.textDiv {
+  @apply text-center flex flex-col gap-4;
+  :first-child {
+    color: var(--themeColor);
+  }
+  :nth-child(2) {
+    @apply text-3xl font-semibold;
+  }
+  :last-child {
+    @apply text-xl;
+  }
+  :nth-child(2) , :last-child {
+    color: var(--textColor);
+  }
 
-.bg-orange {
-  @apply bg-[#F37C34]
-}
-
-.bg-default {
-  @apply bg-[#7D4AEA]
-}
-
-.text-black {@apply text-[#000]}
-.text-darkgrey {@apply text-[#777777]}
-.text-orange {@apply text-[#F37C34]}
-.text-default {@apply text-[#7D4AEA]}
-
-.body-sm {@apply w-[380px] h-[434px] rounded-lg bg-white p-8}
-.body-md {@apply w-[480px] h-[549px] rounded-lg bg-white p-8}
-.body-lg {@apply w-[580px] h-[661px] rounded-lg bg-white p-8}
-
-.c1{@apply flex flex-col text-center gap-3 font-[Inter]}
-.c2-md {@apply text-2xl}
-.c2-lg {@apply text-3xl}
-
-.c3-sm {@apply text-2xl font-semibold}
-.c3-md {@apply text-3xl font-semibold}
-.c3-lg {@apply text-5xl font-semibold}
-
-.c4-sm {@apply text-sm}
-.c4-md {@apply text-lg}
-.c4-lg {@apply text-2xl}
-
-.c5 {
-  @apply flex flex-col
 }
 
 
+.optionDiv {
+@apply mt-10 flex flex-col gap-10
+}
 
+.optionRound{
+  @apply w-[23px] h-[23px] rounded-full relative border;
+  &:hover {
+    @apply outline outline-[2px];
+    outline-color: var(--themeColor)
+  }
+  border-color: var(--borderColor);
+}
+
+.option {
+  @apply flex gap-5
+}
+
+.optionTextDiv {
+  :first-child {
+    color: var(--textColor);
+  }
+  :last-child {
+    @apply text-xs;
+    color: var(--otherTextColor);
+  }
+}
+
+.activeDiv {
+  @apply w-1/2 h-1/2 rounded-full mx-auto;
+  background-color: var(--themeColor);
+}
+
+.btnDiv {
+  @apply flex w-full items-center mt-12 gap-5;
+  :first-child, :last-child {
+    @apply w-full h-12 rounded-lg border
+  }
+  :last-child {
+    @apply text-white border-0;
+    background-color: var(--themeColor);
+  }
+}
