@@ -1,0 +1,57 @@
+.body {
+  background-color: var(--bgColor);
+  @apply rounded-xl w-[480px] h-[516px] relative overflow-hidden p-10 font-[Inter];
+}
+
+.roof {
+  background-color: var(--roofColor);
+  @apply absolute top-0 right-0 left-0 ml-auto mr-auto h-[10px]
+}
+
+
+.ppDiv {
+  @apply flex;
+}
+
+.infoDiv {
+  @apply ml-5 flex justify-center flex-col ;
+  :first-child {
+    @apply text-xl font-semibold
+  }
+  :nth-child(2) {
+    @apply text-sm
+  }
+
+  color: var(--textColor);
+}
+
+.textDiv {
+  color: var(--textColor);
+  @apply mt-10;
+  :first-child {
+    @apply text-4xl font-bold;
+  }
+  :nth-child(2) {
+    @apply text-2xl mt-5;
+  }
+}
+
+.footer {
+  @apply flex flex-col gap-5 mt-5;
+  :first-child {
+    border-color: var(--borderColor);
+    @apply w-full h-12 border border-[1px] rounded-lg pl-6 placeholder-gray-600;
+  }
+  :nth-child(2) {
+    background-color: var(--bgColor);
+    @apply w-full rounded-lg border border-[0] h-12 text-white;
+  }
+
+}
+
+
+.cancelDiv {
+  @apply absolute top-3 right-3;
+}
+
+

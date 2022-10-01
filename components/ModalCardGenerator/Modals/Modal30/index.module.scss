@@ -1,0 +1,44 @@
+.body {
+  @apply w-[870px] h-[526px] rounded-xl relative font-[Inter];
+}
+
+.body1 {
+  background-color: var(--bgColor);
+  @apply w-[740px] h-[441px] rounded-xl absolute top-0 left-0
+
+}
+
+.body1body {
+  color: var(--textColor);
+  @apply w-[350px] ml-5 h-full py-[76px] pl-[60px] ;
+  :first-child {
+    @apply text-4xl font-bold;
+  }
+  :nth-child(2) {
+    @apply text-xl mt-5
+  }
+}
+
+// 172 93
+.body2{
+  @apply w-[400px] h-[450px] rounded-xl absolute right-0 bottom-0;
+  :nth-child(2){
+    @apply absolute -left-[86px] -top-[46.5px];
+  }
+}
+
+.foot {
+  @apply flex flex-col w-full mt-10;
+  :first-child {
+    @apply border border-[1px] h-12 w-fit text-sm w-full rounded-lg pl-5 font-normal placeholder-gray-600 text-sm;
+    border-color: var(--borderColor);
+  }
+  :nth-child(2) {
+    @apply border-[0] rounded-lg h-12 w-full text-white;
+    background-color: var(--bgColor);
+  }
+}
+
+.cancelDiv {
+  @apply absolute top-3 right-3
+}

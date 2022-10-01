@@ -1,0 +1,49 @@
+.body {
+  @apply rounded-xl w-[480px] h-[516px] relative font-[Inter] p-10 flex flex-col;
+  background-color: var(--bgColor);
+}
+.head, .foot {
+  @apply basis-1/2
+}
+
+.head{
+  @apply justify-center flex flex-col;
+  :first-child {
+    @apply mx-auto;
+    fill: var(--themeColor);
+  }
+}
+
+.textDiv {
+  @apply text-center mt-5;
+  :first-child {
+    @apply text-3xl  font-bold;
+  }
+  :nth-child(2) {
+    @apply text-lg mt-5 px-10;
+  }
+  color: var(--textColor);
+}
+
+.footTextDiv {
+  :first-child {
+    @apply text-sm text-center px-16 mt-3;
+    color: var(--otherTextColor)
+  }
+}
+
+
+.btnDiv {
+  @apply flex flex-col w-full justify-center items-center gap-5 mt-12;
+  :first-child, :last-child {
+    @apply h-12 rounded-lg w-full
+  }
+  :first-child {
+    @apply border;
+    border-color: var(--borderColor);
+  }
+  :last-child {
+    @apply text-white border-0;
+    background-color: var(--themeColor);
+  }
+}

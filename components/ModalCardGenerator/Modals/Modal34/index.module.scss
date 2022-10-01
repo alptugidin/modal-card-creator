@@ -1,0 +1,32 @@
+.body {
+  @apply w-[740px] h-[400px] rounded-xl relative flex font-[Inter];
+  background-color: var(--bgColor);
+
+}
+
+.iamgeBg {
+  @apply w-full
+}
+
+.leftDiv {
+  @apply basis-1/2 absolute left-0 p-10 w-1/2 h-full rounded-l-xl mt-10;
+  :first-child {
+    @apply text-3xl;
+  }
+  :nth-child(2) {
+    @apply text-lg mt-5;
+  }
+  color: var(--textColor);
+}
+
+.btn {
+  @apply h-12 border-[0] outline-none w-full rounded-lg mt-5 bg-white text-black;
+}
+
+.cancel {
+  @apply absolute right-3 top-3 outline-none border-[0];
+}
+
+
+
+

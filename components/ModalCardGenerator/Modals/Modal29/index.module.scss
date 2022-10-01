@@ -1,0 +1,39 @@
+.body {
+  @apply w-[740px] h-[400px] rounded-xl relative flex p-4 font-[Inter];
+  background-color: var(--bgColor);
+}
+
+.leftDiv {
+  @apply basis-2/5 rounded-lg overflow-hidden;
+  :first-child {
+    @apply w-full h-full
+  }
+}
+
+.rightDiv {
+
+  @apply basis-3/5 px-10 py-5;
+  :first-child {
+    @apply text-6xl font-semibold;
+  }
+  :nth-child(2) {
+    @apply text-xl mt-5
+  }
+  color: var(--textColor);
+}
+
+.foot {
+  @apply flex flex-col;
+  :first-child {
+    @apply w-fit placeholder-gray-600 w-full h-12 text-sm rounded-lg border mt-10 pl-6 font-normal;
+    border-color: var(--borderColor);
+  }
+  :nth-child(2) {
+    @apply h-12 w-full border-[0] outline-none text-white rounded-lg text-lg;
+    background-color: var(--btnColor);
+  }
+}
+
+.cancelDiv {
+  @apply absolute top-3 right-3
+}

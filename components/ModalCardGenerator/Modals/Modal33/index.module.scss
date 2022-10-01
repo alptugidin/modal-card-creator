@@ -1,0 +1,40 @@
+.body {
+  @apply w-[740px] h-[400px] flex relative rounded-xl font-[Inter];
+  background-color: var(--bgColor);
+}
+
+.divLeft {
+  @apply basis-1/2
+}
+
+.divRight {
+  @apply basis-1/2 p-10
+}
+
+.textDiv {
+  @apply text-center;
+  :first-child {
+    @apply text-4xl font-bold;
+  }
+  :nth-child(2) {
+    @apply text-xl mt-8;
+  }
+  color: var(--textColor);
+}
+
+.foot {
+  @apply flex flex-col justify-center items-center gap-5 mt-5;
+  :first-child{
+    @apply h-12 rounded-lg w-full border placeholder-gray-600 font-normal pl-6;
+    border-color: var(--borderColor);
+  }
+  :nth-child(2) {
+    @apply h-12 rounded-lg outline-none w-full text-white;
+    background-color: var(--bgColor);
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3;
+}
+

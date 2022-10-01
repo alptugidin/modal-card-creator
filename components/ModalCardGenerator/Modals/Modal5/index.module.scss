@@ -1,0 +1,27 @@
+.body {
+  @apply w-[480px] h-[283px] gap-10 rounded-xl font-[Inter] p-10 relative flex flex-col justify-center items-center text-center;
+  background-color: var(--bgColor);
+}
+
+.textDiv {
+  :first-child {
+    @apply text-3xl font-bold
+  }
+  :last-child {
+    @apply text-xl px-5 mt-4;
+  }
+  color: var(--textColor);
+}
+
+
+.buttonDiv{
+  @apply flex w-full px-5;
+  :first-child {
+    @apply h-12 rounded-lg w-full outline-none border-[0] text-white;
+    background-color: var(--themeColor);
+  }
+}
+
+.cancel {
+  @apply absolute right-3 top-3 outline-none border-0;
+}

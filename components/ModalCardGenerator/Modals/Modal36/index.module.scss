@@ -1,0 +1,73 @@
+.body {
+  @apply w-[480px] h-[582px] rounded-xl relative font-[Inter] text-center;
+}
+
+
+.imgBg {
+  @apply w-full
+}
+
+.main {
+  @apply w-full rounded-xl absolute left-0 top-0 p-10 flex justify-center;
+}
+
+
+.signText {
+  @apply text-4xl font-bold;
+}
+
+
+.secondText {
+  @apply text-2xl mt-10;
+}
+.textDiv {
+  @apply px-10;
+
+  :nth-child(4) {
+    @apply w-full rounded-lg h-12 placeholder-gray-600 font-normal border mt-10 text-center;
+  }
+}
+
+.svgDiv {
+  @apply w-full h-[48px] flex justify-center mt-10 relative;
+  :first-child{
+    fill: var(--svgColor);
+  }
+}
+//.svgText {
+//  @apply text-xl font-semibold
+//}
+
+.priceDiv {
+  @apply absolute text-xl h-[48px] w-[305px] flex justify-center items-center;
+  :first-child{
+    @apply text-lg;
+  }
+}
+
+.btnDiv {
+  @apply flex mt-10 justify-center gap-10;
+}
+
+.btnWomen {
+  @apply w-[24px] h-[24px] rounded-full border;
+  border-color: var(--borderColor);
+}
+
+.btnDiv1, .btnDiv2 {
+  @apply flex gap-3
+}
+
+.active {
+  @apply outline outline-4 opacity-40;
+  outline-color: var(--borderColor);
+}
+
+.subscribe {
+  @apply w-full h-12 rounded-lg text-white mt-8;
+  background-color: var(--buttonColor);
+}
+
+.cancel {
+  @apply outline-none border-[0] absolute top-3 right-3;
+}

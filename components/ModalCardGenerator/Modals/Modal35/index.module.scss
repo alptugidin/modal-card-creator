@@ -1,0 +1,43 @@
+.body {
+  @apply w-[480px] h-[430px] rounded-xl relative flex flex-col font-[Inter] px-16 py-10 text-center;
+  background-color: var(--bgColor);
+}
+
+.textDiv {
+  :first-child{
+    @apply text-3xl font-bold;
+  }
+  :nth-child(2) {
+    @apply text-2xl mt-5;
+  }
+
+  color: var(--textColor);
+}
+
+.btnDiv {
+  @apply flex flex-col gap-5 mt-10;
+}
+
+.fb {
+  @apply bg-[#1977F2] w-full h-12 rounded-lg pl-2 text-white flex items-center relative outline-none border-[0] justify-center;
+  :first-child {
+    @apply absolute left-2 top-[8px]
+  }
+}
+
+.pt {
+  @apply bg-[#E60022] w-full h-12 rounded-lg pl-2 text-white flex items-center relative outline-none border-[0] justify-center;
+  :first-child {
+    @apply absolute left-2 top-[8px]
+  }
+}
+.tw {
+  @apply bg-[#1E9BF0] w-full h-12 rounded-lg pl-2 text-white flex items-center relative outline-none border-[0] justify-center;
+  :first-child {
+    @apply absolute left-2 top-[8px]
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 outline-none border-[0];
+}

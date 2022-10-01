@@ -9,6 +9,7 @@ import {
 } from '../../features/appearanceSlice';
 import Modal25 from '../../components/ModalCardGenerator/Modals/Modal25';
 import Modal26 from '../../components/ModalCardGenerator/Modals/Modal26';
+import Modal27 from '../../components/ModalCardGenerator/Modals/Modal27';
 
 const Test = () => {
   const activeColor = useAppSelector((state) => state.appearance.activeColor);
@@ -17,7 +18,7 @@ const Test = () => {
 
   return (
     <div className="bg-gray-600 h-screen">
-      <Modal26 />
+      <Modal27 inStory={false} />
       <p>bg</p>
       <input className=" rounded-lg" type="color" value={col} onChange={(e) => dispatch(changeBackgroundColor(e.target.value))} />
       <p>text</p>
