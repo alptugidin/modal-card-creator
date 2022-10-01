@@ -21,6 +21,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // eslint-disable-next-line react/jsx-props-no-spreading
   return getLayout(
     <Provider store={store}>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Component {...pageProps} />
     </Provider>,
   );
