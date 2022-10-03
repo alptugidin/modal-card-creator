@@ -5,20 +5,13 @@ export const appearanceSlice = createSlice({
   initialState: {
     size: 'Medium',
     position: 4,
-    colors: [
-      '#000',
-      '#777777',
-      '#F37C34',
-      '#DDDDDD',
-      '#7D4AEA',
-    ],
     activeColor: '#7D4AEA',
     style: {
-      textColor: '#000',
+      textColor: '#000000',
       themeColor: '#7D4AEA',
       otherTextColor: '#777777',
       borderColor: '#DDDDDD',
-      backgroundColor: '#fff',
+      backgroundColor: '#ffffff',
     },
   },
   reducers: {
@@ -34,30 +27,14 @@ export const appearanceSlice = createSlice({
       state.activeColor = action.payload;
     },
 
-    changeTextColor: (state, action) => {
-      state.style.textColor = action.payload;
-    },
-
-    changeThemeColor: (state, action) => {
-      state.style.themeColor = action.payload;
-    },
-
-    changeBorderColor: (state, action) => {
-      state.style.borderColor = action.payload;
-    },
-
-    changeOtherTextColor: (state, action) => {
-      state.style.otherTextColor = action.payload;
-    },
-
-    changeBackgroundColor: (state, action) => {
-      state.style.backgroundColor = action.payload;
+    changeStyle: (state, action) => {
+      state.style = { ...state.style, [action.payload.name]: action.payload.value };
     },
 
   },
 });
 
 export const {
-  changeSize, changePosition, setActiveColor, changeBackgroundColor, changeBorderColor, changeThemeColor, changeTextColor, changeOtherTextColor,
+  changeSize, changePosition, setActiveColor, changeStyle,
 } = appearanceSlice.actions;
 export default appearanceSlice.reducer;

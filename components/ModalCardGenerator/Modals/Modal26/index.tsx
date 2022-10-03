@@ -2,11 +2,12 @@ import React, { CSSProperties, useState } from 'react';
 import style from './index.module.scss';
 import { useAppSelector } from '../../../../redux/store';
 import { ModalProps } from '../modalPropTypes';
+import { Modal26Strings } from './Modal26Strings';
 
 const Modal26 = ({
   inStory = true, backgroundColor, otherTextColor, textColor, borderColor, themeColor,
 }:ModalProps) => {
-  const fn = () => {};
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   const colors = useAppSelector((state) => state.appearance.style);
   const [toggle, setToggle] = useState(3);
   const handleOnClick = (e:number, i:number) => {
@@ -35,19 +36,19 @@ const Modal26 = ({
           className={style.text1}
           style={{ '--c': !inStory ? colors.textColor : textColor } as CSSProperties}
         >
-          OVERVIEW
+          {editedText[0] || Modal26Strings[0]}
         </p>
         <p
           className={style.text2}
           style={{ '--c': !inStory ? colors.textColor : textColor } as CSSProperties}
         >
-          Welcome Onboarding
+          {editedText[1] || Modal26Strings[1]}
         </p>
         <p
           className={style.text3}
           style={{ '--c': !inStory ? colors.textColor : textColor } as CSSProperties}
         >
-          Our award winning templates are the most beautiful way to present your ideas online.
+          {editedText[2] || Modal26Strings[2]}
         </p>
       </div>
 
@@ -74,7 +75,7 @@ const Modal26 = ({
             '--bc': !inStory ? colors.borderColor : borderColor,
           }as CSSProperties}
         >
-          Maybe Later
+          {editedText[3] || Modal26Strings[3]}
         </button>
         <button
           type="button"
@@ -82,7 +83,7 @@ const Modal26 = ({
             '--tc': !inStory ? colors.themeColor : themeColor,
           } as CSSProperties}
         >
-          Connect now
+          {editedText[4] || Modal26Strings[4]}
         </button>
       </div>
     </div>

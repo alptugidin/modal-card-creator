@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const EditInput = () => {
+interface EditInputProps {
+  placeholder:string;
+  edit(value:string): void;
+}
+
+const EditInput = ({ placeholder, edit }:EditInputProps) => {
+  const [textValue, setTextValue] = useState('');
   const fn = () => {};
   return (
     <form
@@ -8,9 +14,9 @@ const EditInput = () => {
     >
       <input
         type="text"
-        onChange={() => {}}
+        onChange={(e) => edit(e.target.value)}
         className="border outline-none rounded-lg p-1 w-full focus:border-purple-500 focus:outline-2 focus:outline-purple-400/40 pl-3"
-        value="Test field"
+        placeholder={placeholder}
       />
     </form>
   );

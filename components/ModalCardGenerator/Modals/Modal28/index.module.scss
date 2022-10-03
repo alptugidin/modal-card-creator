@@ -1,6 +1,6 @@
 .body {
   background-color: var(--bgColor);
-  @apply rounded-xl w-[480px] h-[516px] relative overflow-hidden p-10 font-[Inter];
+  @apply rounded-xl w-[480px] h-[516px] shadow-2xl  relative overflow-hidden p-10 font-[Inter];
 }
 
 .roof {

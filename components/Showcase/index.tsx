@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import CamperCard from './CamperCard';
 import CamperCardTransparent from './CamperCardTransparent';
 
@@ -23,12 +24,17 @@ const Showcase = () => (
           </div>
         </div>
         <div>
-          <button
-            type="button"
-            className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium"
-          >
-            Try it out now
-          </button>
+          {/* <button */}
+          {/*  type="button" */}
+          {/*  className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium" */}
+          {/* > */}
+          {/*  Try it out now */}
+          {/* </button> */}
+          <Link to="chooseTemplate" spy smooth duration={500}>
+            <div className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium w-fit cursor-pointer">
+              Try it out now
+            </div>
+          </Link>
         </div>
         <div className="flex font-normal font-[Poppins] gap-4 text-sm text-gray-600 mt-10">
           <div className="flex gap-3">

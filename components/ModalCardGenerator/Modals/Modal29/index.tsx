@@ -2,11 +2,14 @@ import React, { CSSProperties } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import { ModalProps } from '../modalPropTypes';
 import style from './index.module.scss';
+import { Modal29Strings } from './Modal29Strings';
 
 const Modal29 = ({
   inStory = true, textColor, otherTextColor, backgroundColor, borderColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -26,8 +29,8 @@ const Modal29 = ({
           '--textColor': !inStory ? colors.textColor : textColor,
         } as CSSProperties}
       >
-        <p>LOVE NATURE?</p>
-        <p>Mauris feugiat egestas at llus tur pis massa, gravidez rum sit ameta.</p>
+        <p>{editedText[0] || Modal29Strings[0]}</p>
+        <p>{editedText[1] || Modal29Strings[1]}</p>
         <div
           className={style.foot}
           style={{
@@ -38,10 +41,10 @@ const Modal29 = ({
         >
           <input
             type="text"
-            placeholder="Enter your email address"
+            placeholder={editedText[2] || Modal29Strings[2]}
 
           />
-          <button type="button">Subscribe</button>
+          <button type="button">{editedText[3] || Modal29Strings[3]}</button>
         </div>
       </div>
     </div>

@@ -1,12 +1,14 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
+import { Modal1Strings } from './Modal1Strings';
 
 const Modal1 = ({
   inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
     <div
       className={style.body}
@@ -32,19 +34,20 @@ const Modal1 = ({
       </div>
 
       <div className={style.textDiv}>
-        <p>Security Code</p>
-        <p>This code expires in 24 hours</p>
+        <p>{editedText[0] || Modal1Strings[0]}</p>
+        <p>{editedText[1] || Modal1Strings[1]}</p>
       </div>
 
       <div className={style.inputDiv}>
-        <input type="text" placeholder="Code" />
+        <input type="text" placeholder={editedText[2] || Modal1Strings[2]} />
       </div>
 
       <div className={style.btnDiv}>
-        <button type="button">Cancel</button>
-        <button type="button">Continue</button>
+        <button type="button">{editedText[3] || Modal1Strings[3]}</button>
+        <button type="button">{editedText[4] || Modal1Strings[4]}</button>
       </div>
     </div>
   );
 };
 export default Modal1;
+//                        {editedText[0] || Modal1Strings[0]}

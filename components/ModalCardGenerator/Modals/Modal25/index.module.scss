@@ -1,6 +1,6 @@
 .body {
   background-color: var(--c);
-  @apply rounded-lg w-[740px] h-[150px] p-5 flex gap-5 items-center relative;
+  @apply rounded-lg w-[740px] h-[150px] p-5 flex gap-5 items-center  shadow-2xl relative;
 }
 
 .b2 {

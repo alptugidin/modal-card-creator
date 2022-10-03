@@ -1,29 +1,43 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
+import { useAppSelector } from '../../../../redux/store';
+import { ModalProps } from '../modalPropTypes';
+import style from './index.module.scss';
+import { Modal14Strings } from './Modal14Strings';
 
-const Modal14 = () => {
-  const fn = () => {};
+const Modal14 = ({
+  inStory = true, backgroundColor, textColor, otherTextColor, themeColor, borderColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
-    <div className="w-[740px] h-[340px] relative bg-white rounded-xl py-10 px-10 flex flex-col font-[Inter]">
-      <div className="absolute right-3 top-3">
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
+      </button>
+      <div className={style.ppDiv}>
+        <img src="/Modal14/img.png" alt="" />
       </div>
-      <div className="basis-1/2 flex">
-        <div className="w-1/6">
-          <img src="/Modal14/img.png" alt="img" />
+      <div className={style.mainDiv}>
+        <div className={style.infoDiv}>
+          <p>{editedText[0] || Modal14Strings[0]}</p>
+          <p>{editedText[1] || Modal14Strings[1]}</p>
         </div>
-        <div className="flex flex-col justify-center gap-2 mb-4 px-8">
-          <p className="text-3xl font-semibold">Jenny Yelriver</p>
-          <p className="text-lg text-gray-400">@jennyyelriver</p>
+        <div className={style.textDiv}>
+          <p>
+            {editedText[2] || Modal14Strings[2]}
+          </p>
+          <p>{editedText[3] || Modal14Strings[3]}</p>
         </div>
-      </div>
-      <div className="basis-1/2 pl-36">
-        <p className="text-lg">
-          Duis eget elit erat. Aliam euismod, mauris quis tristique
-          feugiat, elit diam tincidunt erat, nec fringilla odio orci dapibu
-          magna. Vestibulum ultrices sem nec ex efficitur aliquam.
-        </p>
-        <p className="text-gray-400 mt-10">10 SEP 2021 - 16:33 PM</p>
-
       </div>
     </div>
   );

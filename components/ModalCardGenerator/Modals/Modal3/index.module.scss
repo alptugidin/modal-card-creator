@@ -1,5 +1,5 @@
 .body {
-  @apply w-[480px] h-[549px] rounded-xl relative font-[Inter] p-10 flex flex-col ;
+  @apply w-[480px] h-[549px] rounded-xl relative font-[Inter] p-10 flex flex-col shadow-2xl ;
   background-color: var(--bgColor);
 }
 
@@ -43,7 +43,7 @@
     color: var(--textColor);
   }
   :last-child {
-    @apply text-xs;
+    @apply text-xs mt-1;
     color: var(--otherTextColor);
   }
 }

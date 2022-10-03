@@ -1,10 +1,15 @@
 import React, { CSSProperties } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
+import { Modal25Strings } from './Modal25Strings';
+import { ModalProps } from '../modalPropTypes';
 
-const Modal25 = () => {
+const Modal25 = ({
+  inStory = false, backgroundColor, textColor, otherTextColor, themeColor, borderColor,
+}:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
-  const fn = () => {};
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div className={style.body} style={{ '--c': colors.backgroundColor } as CSSProperties}>
       <button type="button" className={style.cancel}>
@@ -17,8 +22,10 @@ const Modal25 = () => {
         </svg>
       </div>
       <div className={style.b2}>
-        <p className={style.text1} style={{ '--c': colors.textColor } as CSSProperties}>Reach and grow your audiennce</p>
-        <p className={style.text2} style={{ '--c': colors.otherTextColor } as CSSProperties}>Build a better popup today.</p>
+        <p className={style.text1} style={{ '--c': colors.textColor } as CSSProperties}>
+          {editedText[0] || Modal25Strings[0]}
+        </p>
+        <p className={style.text2} style={{ '--c': colors.otherTextColor } as CSSProperties}>{editedText[1] || Modal25Strings[1]}</p>
       </div>
     </div>
   );

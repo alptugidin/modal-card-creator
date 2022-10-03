@@ -2,11 +2,14 @@ import React, { CSSProperties, useState } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
+import { Modal36Strings } from './Modal36Strings';
 
 const Modal36 = ({
   inStory = true, backgroundColor, textColor, borderColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   const [gender, setGender] = useState('Women');
   return (
     <div className={style.body}>
@@ -18,7 +21,7 @@ const Modal36 = ({
       </div>
       <div className={style.main}>
         <div className={style.textDiv}>
-          <p className={style.signText}>Sign up for our newsletter</p>
+          <p className={style.signText}>{editedText[0] || Modal36Strings[0]}</p>
           <div className={style.svgDiv}>
             <svg width="350" height="48" viewBox="0 0 350 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -29,11 +32,11 @@ const Modal36 = ({
               />
             </svg>
             <div className={style.priceDiv}>
-              <p>GET 30% OF DISCOUNT</p>
+              <p>{editedText[1] || Modal36Strings[1]}</p>
             </div>
           </div>
-          <p className={style.secondText}>Be the first to learn about new trends and offers.</p>
-          <input type="text" placeholder="Enter your email adress" />
+          <p className={style.secondText}>{editedText[2] || Modal36Strings[2]}</p>
+          <input type="text" placeholder={editedText[3] || Modal36Strings[3]} />
 
           <div
             className={style.btnDiv}
@@ -49,7 +52,7 @@ const Modal36 = ({
                 onClick={(e) => setGender(e.currentTarget.dataset.gender as string)}
                 className={[style.btnWomen, gender === 'Women' ? style.active : ''].join(' ')}
               />
-              <p>Women</p>
+              <p>{editedText[4] || Modal36Strings[4]}</p>
             </div>
             <div className={style.btnDiv2}>
               <button
@@ -58,7 +61,7 @@ const Modal36 = ({
                 onClick={(e) => setGender(e.currentTarget.dataset.gender as string)}
                 className={[style.btnWomen, gender === 'Men' ? style.active : ''].join(' ')}
               />
-              <p>Men</p>
+              <p>{editedText[5] || Modal36Strings[5]}</p>
             </div>
           </div>
 
@@ -69,7 +72,7 @@ const Modal36 = ({
               '--buttonColor': !inStory ? colors.themeColor : themeColor,
             } as CSSProperties}
           >
-            Subscribe
+            {editedText[6] || Modal36Strings[6]}
           </button>
         </div>
       </div>

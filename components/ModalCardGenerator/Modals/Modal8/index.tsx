@@ -1,37 +1,50 @@
-import React from 'react';
-import { ModalTypeProp } from '../Modal1';
-import { setBG } from '../../../../features/setBG';
+import React, { CSSProperties, useState } from 'react';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
+import style from './index.module.scss';
+import { Modal8Strings } from './Modal8Strings';
 
-const Modal8 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal8 = ({
+  inStory = true, borderColor, backgroundColor, themeColor, textColor, otherTextColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const [toggle, setToggle] = useState<boolean>(true);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
-    <div className={`w-[740px] h-[400px] rounded-lg flex flex-col font-[Inter] relative p-12 ${setBG(color)}`}>
-      <div>
-        <img src="/cancel.svg" alt="cancel" className="absolute right-3 top-3" />
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
+        <img src="/cancel.svg" alt="cancel" />
+      </button>
+      <div className={style.textDiv}>
+        <p>{editedText[0] || Modal8Strings[0]}</p>
+        <p>{editedText[1] || Modal8Strings[1]}</p>
       </div>
-      <div className="text-white text-center basis-1/2">
-        <p className="text-4xl font-semibold">Subscribe to our newsletter</p>
-        <p className="text-2xl mt-5">Receive the flash news in  your inbox.</p>
+      <div className={style.inputDiv}>
+        <input type="text" placeholder={editedText[2] || Modal8Strings[2]} />
       </div>
-      <div className="flex flex-col items-center">
-        <div className="w-1/2">
-          <form action="" className="w-full">
-            <input
-              type="text"
-              placeholder="Enter your email"
-              className="bg-white rounded-lg h-12 w-full pl-5"
-            />
-          </form>
-          <div className="flex items-center gap-4 mt-5">
-            <div className="w-[23px] h-[23px] rounded-full border border-white">
-              {/*  */}
-            </div>
-            <p className="text-white font-sans text-sm font-thin">By subscribe this form I agree to Privacy Policy.</p>
-          </div>
-          <div className="w-1/2 float-right mt-5">
-            <button type="button" className="bg-white rounded-lg h-12 w-full">Sign up now</button>
-          </div>
-        </div>
+      <div className={style.btnDiv}>
+        <button
+          type="button"
+          className={style.toggleButton}
+          onClick={() => setToggle(!toggle)}
+        >
+          <div className={toggle ? style.active : ''} />
+        </button>
+        <p>{editedText[3] || Modal8Strings[3]}</p>
+      </div>
+      <div className={style.signDiv}>
+        <button type="button">{editedText[4] || Modal8Strings[4]}</button>
       </div>
     </div>
   );

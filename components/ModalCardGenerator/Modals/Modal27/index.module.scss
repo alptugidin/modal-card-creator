@@ -1,6 +1,6 @@
 .body {
   background-color: var(--bgc);
-  @apply w-[480px] h-[507px] rounded-xl p-10 relative overflow-hidden font-[Inter];
+  @apply w-[480px] h-[507px] rounded-xl p-10  shadow-2xl relative overflow-hidden font-[Inter];
 }
 
 

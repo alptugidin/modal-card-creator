@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
+import { Modal4Strings } from './Modal4Strings';
 import style from './index.module.scss';
 
 const Modal4 = ({
@@ -8,7 +9,7 @@ const Modal4 = ({
 }:ModalProps) => {
   function fn() {}
   const colors = useAppSelector((state) => state.appearance.style);
-
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
     <div
       className={style.body}
@@ -28,18 +29,18 @@ const Modal4 = ({
         </svg>
 
         <div className={style.textDiv}>
-          <p>Delete your profile</p>
-          <p>Your profile will be automatically deleted after 1 month.</p>
+          <p>{editedText[0] || Modal4Strings[0]}</p>
+          <p>{editedText[1] || Modal4Strings[1]}</p>
         </div>
 
       </div>
       <div className={style.foot}>
         <div className={style.footTextDiv}>
-          <p>You won’t be able to access to your profile after strong.</p>
+          <p>{editedText[2] || Modal4Strings[2]}</p>
         </div>
         <div className={style.btnDiv}>
-          <button type="button">Delete my profile</button>
-          <button type="button">Cancel</button>
+          <button type="button">{editedText[3] || Modal4Strings[3]}</button>
+          <button type="button">{editedText[4] || Modal4Strings[4]}</button>
         </div>
       </div>
     </div>

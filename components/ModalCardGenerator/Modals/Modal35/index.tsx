@@ -2,11 +2,14 @@ import React, { CSSProperties } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import { ModalProps } from '../modalPropTypes';
 import style from './index.module.scss';
+import { Modal35Strings } from './Modal35Strings';
 
 const Modal35 = ({
   inStory = true, backgroundColor, textColor, otherTextColor, themeColor, borderColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -19,8 +22,8 @@ const Modal35 = ({
         <img src="/cancel.svg" alt="cancel" />
       </button>
       <div className={style.textDiv}>
-        <p>Share this page</p>
-        <p>If you liked this page you can share it on your social media.</p>
+        <p>{editedText[0] || Modal35Strings[0]}</p>
+        <p>{editedText[1] || Modal35Strings[1]}</p>
       </div>
       <div className={style.btnDiv}>
         <button type="button" className={style.fb}>

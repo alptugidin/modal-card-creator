@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import ImageUploader from '../commons/ImageUploader';
+import EditInput from '../commons/EditInput';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { strings } from '../ModalCardGenerator/Modals/stringsIndex';
+import { updateText } from '../../features/modalCreateSlice';
 
 const Content = () => {
-  const fn = () => {};
-
+  const editableTextCount = useAppSelector((state) => state.modalCreate.editableTextCount);
+  const editableTexts = useAppSelector((state) => state.modalCreate.editableTexts);
+  const dispatch = useAppDispatch();
   return (
 
     <div className="mt-24">
       <div className="flex items-center gap-4">
         <img src="/stepThree.svg" alt="stepTwo" />
         <span className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">
-          Index
+          Content
         </span>
       </div>
 
@@ -20,18 +25,14 @@ const Content = () => {
             <p className="font-[Inter] font-normal mt-7">Edit your content</p>
           </div>
           <div className="flex flex-col gap-4 mt-3">
-            {[...Array.from(Array(4).keys())].map((el) => (
-              <form
-                key={el.toString()}
-                action="components/Content/index.tsx"
-              >
-                <input
-                  type="text"
-                  onChange={() => {}}
-                  className="border outline-none rounded-lg p-1 w-full focus:border-purple-500 focus:outline-2 focus:outline-purple-400/40"
-                  value="Test field"
-                />
-              </form>
+            {/* @ts-ignore */}
+            {[...Array(editableTextCount).keys()].map((i) => (
+              <EditInput
+                key={i.toString()}
+                // edit={(value:string) => dispatch(updateText({ index: i, value }))}
+                edit={(value:string) => dispatch(updateText({ index: i, name: value }))}
+                placeholder={editableTexts[i]}
+              />
             ))}
           </div>
           <ImageUploader type="Image" />

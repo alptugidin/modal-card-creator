@@ -2,11 +2,13 @@ import React, { CSSProperties, useEffect } from 'react';
 import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
+import { Modal27Strings } from './Modal27Strings';
 
 const Modal27 = ({
   inStory = true, borderColor, backgroundColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
     <div
       className={style.body}
@@ -26,8 +28,8 @@ const Modal27 = ({
           '--textColor': !inStory ? colors.textColor : textColor,
         } as CSSProperties}
       >
-        <p>Get straight to growing your business well</p>
-        <p>There’s good news for parents who have child born.</p>
+        <p>{editedText[0] || Modal27Strings[0]}</p>
+        <p>{editedText[1] || Modal27Strings[1]}</p>
       </div>
 
       <div className={style.inputDiv}>
@@ -53,7 +55,7 @@ const Modal27 = ({
         <input
           type="text"
           className={style.phoneInput}
-          placeholder="Enter your phone"
+          placeholder={editedText[2] || Modal27Strings[2]}
           style={{
             '--borderColor': !inStory ? colors.borderColor : borderColor,
           } as CSSProperties}
@@ -67,7 +69,7 @@ const Modal27 = ({
             '--bgColor': !inStory ? colors.themeColor : themeColor,
           } as CSSProperties}
         >
-          Sign up
+          {editedText[3] || Modal27Strings[3]}
         </button>
       </div>
       <div className={style.footerDiv}>
@@ -78,7 +80,7 @@ const Modal27 = ({
             '--textColor': !inStory ? colors.textColor : textColor,
           } as CSSProperties}
         >
-          I have an account
+          {editedText[4] || Modal27Strings[4]}
         </button>
         <button
           type="button"
@@ -87,7 +89,7 @@ const Modal27 = ({
             '--textColor': !inStory ? colors.textColor : textColor,
           } as CSSProperties}
         >
-          Forgot password
+          {editedText[5] || Modal27Strings[5]}
         </button>
       </div>
     </div>

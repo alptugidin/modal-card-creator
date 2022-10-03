@@ -4,7 +4,7 @@
 
 .body1 {
   background-color: var(--bgColor);
-  @apply w-[740px] h-[441px] rounded-xl absolute top-0 left-0
+  @apply w-[740px] h-[441px] rounded-xl absolute top-0 left-0 shadow-2xl;
 
 }
 
@@ -21,7 +21,7 @@
 
 // 172 93
 .body2{
-  @apply w-[400px] h-[450px] rounded-xl absolute right-0 bottom-0;
+  @apply w-[400px] h-[450px] rounded-xl absolute right-0 bottom-0 shadow-2xl;
   :nth-child(2){
     @apply absolute -left-[86px] -top-[46.5px];
   }

@@ -1,43 +1,43 @@
-import React from 'react';
-import { setBG } from '../../../../features/setBG';
-import { ModalTypeProp } from '../Modal1';
+import React, { CSSProperties } from 'react';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
+import style from './index.module.scss';
+import { Modal22Strings } from './Modal22Strings';
 
-const Modal22 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal22 = ({
+  inStory = true, themeColor, textColor, backgroundColor, otherTextColor, borderColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
-    <div className="w-[480px] h-[702px] bg-white rounded-xl relative flex flex-col font-[Inter]">
-      <button type="button" className="absolute top-3 right-3">
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
       </button>
-      <div className="basis-1/3">
-        <img src="/Modal22/img.png" alt="img" />
+      <div className={style.imgDiv}>
+        <img src="/Modal22/img.png" alt="bg" />
+        <img src="/Modal22/img_1.png" alt="pp" className={style.pp} />
       </div>
-      <div className="basis-2/3 relative flex flex-col px-10">
-        <img src="/Modal22/img_1.png" alt="profile" className="absolute w-[120px] -top-[60px] right-0 left-0 ml-auto mr-auto" />
-        <div className="text-center basis-1/2 mt-[60px] justify-start items-center flex flex-col">
-          <p className="text-xl font-semibold mt-5">Jenny Yelriver</p>
-          <p className="">Creative Director</p>
-          <p className="text-3xl font-bold mt-7">
-            5 reasons to purchase desktop computers
-          </p>
-        </div>
-        <div className="basis-1/2 px-8">
-          <p className="text-center text-xl">Our award winning templates are the most beautiful way to present your ideas online.</p>
-          <div className="flex gap-5">
-            <button
-              type="button"
-              className="rounded-lg h-12 text-black border border-gray-300 w-full mt-5 bg-white"
-            >
-              Maybe later
-            </button>
-            <button
-              type="button"
-              className={`rounded-lg h-12 border border-gray-300 w-full mt-5 text-white ${setBG(color)}`}
-            >
-              Read Article
-            </button>
-          </div>
-        </div>
+      <div className={style.textDiv}>
+        <p>{editedText[0] || Modal22Strings[0]}</p>
+        <p>{editedText[1] || Modal22Strings[1]}</p>
+        <p>{editedText[2] || Modal22Strings[2]}</p>
+        <p>{editedText[3] || Modal22Strings[3]}</p>
+      </div>
+      <div className={style.btnDiv}>
+        <button type="button">{editedText[4] || Modal22Strings[4]}</button>
+        <button type="button">{editedText[5] || Modal22Strings[5]}</button>
       </div>
     </div>
   );

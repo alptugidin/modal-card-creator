@@ -1,5 +1,5 @@
 .body {
- @apply w-[480px] h-[600px] rounded-xl relative font-[Inter] flex flex-col;
+ @apply w-[480px] h-[600px] rounded-xl relative font-[Inter] flex flex-col shadow-2xl;
  background-color: var(--bgColor);
 }
 

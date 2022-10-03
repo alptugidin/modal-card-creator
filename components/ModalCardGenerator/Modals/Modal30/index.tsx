@@ -1,14 +1,17 @@
 import React, { CSSProperties } from 'react';
-import { color } from '@storybook/theming';
 import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
 import SVG from './SVG';
+import { Modal30Strings } from './Modal30Strings';
+import { Modal1Strings } from '../Modal1/Modal1Strings';
 
 const Modal30 = ({
   inStory = true, otherTextColor, backgroundColor, textColor, themeColor, borderColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div className={style.body}>
       <div
@@ -26,8 +29,8 @@ const Modal30 = ({
             '--textColor': !inStory ? colors.textColor : textColor,
           } as CSSProperties}
         >
-          <p>Sign up for ournewsletter</p>
-          <p>If you’re looking for a new way to promote your business that won’t cost you money.</p>
+          <p>{editedText[0] || Modal30Strings[0]}</p>
+          <p>{editedText[1] || Modal30Strings[1]}</p>
           <div
             className={style.foot}
             style={{
@@ -35,9 +38,9 @@ const Modal30 = ({
               '--bgColor': !inStory ? colors.themeColor : themeColor,
             } as CSSProperties}
           >
-            <input type="text" placeholder="Enter your email address" />
+            <input type="text" placeholder={editedText[2] || Modal30Strings[2]} />
             <button type="button">
-              Subscribe
+              {editedText[3] || Modal30Strings[3]}
             </button>
           </div>
         </div>

@@ -2,11 +2,14 @@ import React, { CSSProperties } from 'react';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
+import { Modal34Strings } from './Modal34Strings';
 
 const Modal34 = ({
   inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -26,10 +29,10 @@ const Modal34 = ({
           '--textColor': !inStory ? colors.textColor : textColor,
         } as CSSProperties}
       >
-        <p>World Animal Day</p>
+        <p>{editedText[0] || Modal34Strings[0]}</p>
         {/* eslint-disable-next-line max-len */}
-        <p>Animal Day is an international day of action for animal rights and welfare celebrated annually on October 4.</p>
-        <button type="button" className={style.btn}>Learn more</button>
+        <p>{editedText[1] || Modal34Strings[1]}</p>
+        <button type="button" className={style.btn}>{editedText[2] || Modal34Strings[2]}</button>
       </div>
     </div>
   );

@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react';
 import * as queryString from 'querystring';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import {
-  changePosition, changeSize, setActiveColor,
+  changePosition, changeSize, changeStyle, setActiveColor,
 } from '../../features/appearanceSlice';
 import ImageUploader from '../commons/ImageUploader';
-import { setBG } from '../../features/setBG';
+import { setBG } from '../../utils/setBG';
 
 const Appearance = () => {
   const dispatch = useAppDispatch();
   const size = useAppSelector((state) => state.appearance.size);
   const position = useAppSelector((state) => state.appearance.position);
-  const colors = useAppSelector((state) => state.appearance.colors);
+  const colors = useAppSelector((state) => state.appearance.style);
   const activeColor = useAppSelector((state) => state.appearance.activeColor);
-  const style = useAppSelector((state) => state.appearance.style);
   const positionRadius = (place:number):string => {
     let output:string = '';
     if (place === 0) {
@@ -48,7 +47,7 @@ const Appearance = () => {
   };
 
   return (
-    <div className="mt-24">
+    <div id="Appearance" className="">
       <div className="flex items-center gap-4">
         <img src="/stepTwo.svg" alt="stepTwo" />
         <span className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">
@@ -95,22 +94,21 @@ const Appearance = () => {
 
             <p className="font-[Inter] font-medium mt-7">Colors</p>
             <div className="flex gap-2 mt-3">
-              {Object.values(style).map((col, i) => (
-                <button
-                  type="button"
-                  data-color={col}
+              {Object.entries(colors).map((col, i) => (
+                <input
+                  type="color"
+                  data-color={col[0]}
                   onClick={() => {}}
                   key={i.toString()}
-                  className={`w-[42px] transition-all h-[42px] rounded-lg border-2 border-white ${setBG(col)}`}
+                  value={col[1]}
+                  onChange={(e) => dispatch(changeStyle({ name: col[0], value: e.target.value }))}
+                  className="w-[42px] h-[42px] rounded-lg border border-gray-400 cursor-pointer"
                 />
               ))}
-              {
-                Object.values(style).map((e) => (
-                  <p>{e}</p>
-                ))
-              }
+
             </div>
             <ImageUploader type="Logo" />
+
           </div>
         </div>
       </div>

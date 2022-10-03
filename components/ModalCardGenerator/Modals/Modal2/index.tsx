@@ -3,11 +3,14 @@ import Image from 'next/image';
 import style from './index.module.scss';
 import { useAppSelector } from '../../../../redux/store';
 import { ModalProps } from '../modalPropTypes';
+import { Modal2Strings } from './Modal2Strings';
 
 const Modal2 = ({
   inStory = true, textColor, otherTextColor, backgroundColor, themeColor, borderColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -27,12 +30,12 @@ const Modal2 = ({
       </div>
       <div className={style.bottomDiv}>
         <div className={style.textDiv}>
-          <p>Install local now</p>
-          <p>We’ve gone native, try it!</p>
+          <p>{editedText[0] || Modal2Strings[0]}</p>
+          <p>{editedText[1] || Modal2Strings[1]}</p>
         </div>
         <div className={style.btnDiv}>
-          <button type="button">Continue</button>
-          <button type="button">Not now</button>
+          <button type="button">{editedText[2] || Modal2Strings[2]}</button>
+          <button type="button">{editedText[3] || Modal2Strings[3]}</button>
         </div>
       </div>
     </div>

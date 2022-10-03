@@ -1,13 +1,15 @@
 import React, { CSSProperties } from 'react';
-import Image from 'next/image';
 import { useAppSelector } from '../../../../redux/store';
 import { ModalProps } from '../modalPropTypes';
 import style from './index.module.scss';
+import { Modal28Strings } from './Modal28Strings';
 
 const Modal28 = ({
   inStory = true, backgroundColor, themeColor, borderColor, textColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -32,8 +34,8 @@ const Modal28 = ({
             '--textColor': !inStory ? colors.textColor : textColor,
           } as CSSProperties}
         >
-          <p>Jenny Yelriver</p>
-          <p>Creative Director</p>
+          <p>{editedText[0] || Modal28Strings[0]}</p>
+          <p>{editedText[1] || Modal28Strings[1]}</p>
         </div>
       </div>
       <div
@@ -42,8 +44,8 @@ const Modal28 = ({
           '--textColor': !inStory ? colors.textColor : textColor,
         } as CSSProperties}
       >
-        <p>Start your 14-day free trial today and shine.</p>
-        <p>If you’re looking for a new way to promote your business that won’t cost you money.</p>
+        <p>{editedText[2] || Modal28Strings[2]}</p>
+        <p>{editedText[3] || Modal28Strings[3]}</p>
       </div>
       <div
         className={style.footer}
@@ -52,9 +54,9 @@ const Modal28 = ({
           '--bgColor': !inStory ? colors.themeColor : themeColor,
         } as CSSProperties}
       >
-        <input type="text" placeholder="Enter your email address" />
+        <input type="text" placeholder={editedText[4] || Modal28Strings[4]} />
         <button type="button">
-          Subscribe
+          {editedText[5] || Modal28Strings[5]}
         </button>
       </div>
     </div>

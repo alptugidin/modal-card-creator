@@ -1,5 +1,5 @@
 .body {
-  @apply rounded-xl  w-[480px] h-[687px] relative font-[Inter];
+  @apply rounded-xl  w-[480px] h-[687px] relative shadow-2xl  font-[Inter];
 }
 
 .cancelDiv {
@@ -29,14 +29,14 @@
 }
 
 .text2 {
-  @apply text-4xl font-semibold mt-10;
+  @apply text-3xl text-center font-semibold mt-10;
 }
 .text2{
   color: var(--c);
 }
 
 .text3 {
-  @apply text-xl mt-5
+  @apply text-xl mt-5 text-center
 }
 
 .text3 {

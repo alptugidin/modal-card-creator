@@ -2,11 +2,14 @@ import React, { CSSProperties } from 'react';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
+import { Modal6Strings } from './Modal6Strings';
 
 const Modal6 = ({
   inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -30,17 +33,17 @@ const Modal6 = ({
         </svg>
 
         <div className={style.textDiv}>
-          <p>Join our mail list</p>
-          <p>Save up to 30% of your next order</p>
+          <p>{editedText[0] || Modal6Strings[0]}</p>
+          <p>{editedText[1] || Modal6Strings[1]}</p>
         </div>
       </div>
       <div className={style.bottomDiv}>
         <div className={style.inputDiv}>
-          <input type="text" placeholder="Enter your email" />
+          <input type="text" placeholder={editedText[2] || Modal6Strings[2]} />
         </div>
         <div className={style.btnDiv}>
-          <button type="button">Later</button>
-          <button type="button">Join now</button>
+          <button type="button">{editedText[3] || Modal6Strings[3]}</button>
+          <button type="button">{editedText[4] || Modal6Strings[4]}</button>
         </div>
       </div>
     </div>

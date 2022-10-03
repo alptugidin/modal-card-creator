@@ -2,11 +2,13 @@ import React, { CSSProperties } from 'react';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
+import { Modal5Strings } from './Modal5Strings';
 
 const Modal5 = ({
   inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
     <div
       className={style.body}
@@ -23,11 +25,11 @@ const Modal5 = ({
         <img src="/cancel.svg" alt="cancel" />
       </button>
       <div className={style.textDiv}>
-        <p>The file is on it's way</p>
-        <p>You’ll get an notified when the receiver has opened the email.</p>
+        <p>{editedText[0] || Modal5Strings[0]}</p>
+        <p>{editedText[1] || Modal5Strings[1]}</p>
       </div>
       <div className={style.buttonDiv}>
-        <button type="button">Go to dashboard</button>
+        <button type="button">{editedText[2] || Modal5Strings[2]}</button>
       </div>
     </div>
   );

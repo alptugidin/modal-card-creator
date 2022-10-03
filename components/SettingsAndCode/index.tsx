@@ -11,8 +11,8 @@ const SettingsAndCode = () => {
         <img src="/stepFive.svg" alt="" />
         <p className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">Settings and Code</p>
       </div>
-      <div className="flex">
-        <div className="basis-1/3">
+      <div className="flex pr-5">
+        <div className="">
           <p className="mt-7 text-xl font-[Poppins] font-semibold">Webhook to Send data</p>
           <p className="mt-3 font-[Poppins]">Enter your Webhook URL</p>
           <span className="mt-3 font-[Poppins]">

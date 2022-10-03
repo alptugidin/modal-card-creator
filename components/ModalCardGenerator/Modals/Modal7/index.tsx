@@ -1,23 +1,36 @@
-import React from 'react';
-import { ModalTypeProp } from '../Modal1';
-import { setBG } from '../../../../features/setBG';
+import React, { CSSProperties } from 'react';
+import style from './index.module.scss';
+import { useAppSelector } from '../../../../redux/store';
+import { ModalProps } from '../modalPropTypes';
+import { Modal7Strings } from './Modal7Strings';
 
-const Modal7 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal7 = ({
+  inStory = true, textColor, backgroundColor, otherTextColor, borderColor, themeColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
-    <div className={`w-[480px] h-[288px] rounded-lg relative flex flex-col font-[Inter] p-14 text-center text-white ${setBG(color)}`}>
-      <div>
-        <img src="/cancel.svg" alt="cancel" className="absolute right-3 top-3" />
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
+        <img src="/cancel.svg" alt="cancel" />
+      </button>
+      <div className={style.textDiv}>
+        <p>{editedText[0] || Modal7Strings[0]}</p>
+        <p>{editedText[1] || Modal7Strings[1]}</p>
       </div>
-      <div>
-        <p className="text-3xl font-semibold">Hi, Stranger</p>
-      </div>
-      <div className="pt-6">
-        <p className="text-xl">Sign up now, and get a 30% discount</p>
-      </div>
-      <div className="flex justify-center gap-4 mt-10">
-        <button type="button" className="basis-1/2 rounded-lg h-12 border border-white text-white">Login</button>
-        <button type="button" className="basis-1/2 rounded-lg h-12 bg-white text-black">Sign up now</button>
+      <div className={style.btnDiv}>
+        <button type="button">{editedText[2] || Modal7Strings[2]}</button>
+        <button type="button">{editedText[3] || Modal7Strings[3]}</button>
       </div>
     </div>
   );

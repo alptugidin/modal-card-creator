@@ -1,47 +1,48 @@
-import React from 'react';
-import { setBG } from '../../../../features/setBG';
-import { ModalTypeProp } from '../Modal1';
+import React, { CSSProperties } from 'react';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
+import style from './index.module.scss';
+import { Modal10Strings } from './Modal10Strings';
 
-const Modal10 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal10 = ({
+  inStory = true, textColor, backgroundColor, otherTextColor, themeColor, borderColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
-    <div className="w-[740px] h-[443px] bg-white rounded-xl flex relative font-[Inter]">
-      <div>
-        <img src="/cancel.svg" alt="camcel" className="absolute right-3 top-3" />
-      </div>
-      <div className="basis-1/2 flex flex-col p-10">
-        <div className="basis-1/3">
-          <p className="text-3xl font-semibold">Sign up</p>
-          <p className="text-2xl mt-3 text-gray-700">Join new adventure</p>
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
+        <img src="/cancel.svg" alt="cancel" />
+      </button>
+      <div className={style.leftDiv}>
+        <div className={style.textDiv}>
+          <p>{editedText[0] || Modal10Strings[0]}</p>
+          <p>{editedText[1] || Modal10Strings[1]}</p>
         </div>
-        <div className="basis-1/3">
-          <form action="" className="w-full">
-            <input
-              type="text"
-              placeholder="Enter Full name"
-              className="pl-5 placeholder-gray-700 placeholder:text-sm border border-b-gray-300 rounded-lg h-12 w-full"
-            />
-          </form>
-          <form action="" className="w-full mt-3">
-            <input
-              type="text"
-              placeholder="Enter your email"
-              className="pl-5 placeholder-gray-700 placeholder:text-sm border border-b-gray-300 rounded-lg h-12 w-full"
-            />
-          </form>
+        <div className={style.inputDiv}>
+          <input type="text" placeholder={editedText[2] || Modal10Strings[2]} />
+          <input type="text" placeholder={editedText[3] || Modal10Strings[3]} />
         </div>
-        <div className="basis-1/3">
-          <div>
-            <button type="button" className={`h-12 rounded-lg w-full text-white text-sm mt-5 ${setBG(color)}`}>Sign up</button>
-          </div>
-          <div className="flex justify-between mt-5">
-            <button type="button" className="text-sm">Forgot password</button>
-            <button type="button" className="text-sm">Log in</button>
-          </div>
+        <div className={style.signDiv}>
+          <button type="button">{editedText[4] || Modal10Strings[4]}</button>
+        </div>
+        <div className={style.footButtons}>
+          <button type="button">{editedText[5] || Modal10Strings[5]}</button>
+          <button type="button">{editedText[6] || Modal10Strings[6]}</button>
         </div>
       </div>
-      <div className="basis-1/2 h-[443px]">
-        <img src="/Modal10/img.png" alt="img" className="w-[370px] h-[443px]" />
+      <div className={style.rightDiv}>
+        <img src="/Modal10/img.png" alt="img" />
       </div>
     </div>
   );

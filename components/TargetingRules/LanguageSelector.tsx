@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import CheckBox from '../commons/CheckBox';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { addAllLanguages, clearAllLanguages, setLanguage } from '../../features/targetingSlice';
 
 const LanguageSelector = () => {
-  const langs = ['English', 'French', 'German', 'Polish', 'Dutch', 'Finnish', 'Arabic', 'Russian', 'Spanish', '232', '231231'];
+  const languages = useAppSelector((state) => state.targeting.languages);
+  const selectedLanguages = useAppSelector((state) => state.targeting.selectedLanguages);
   const [dropdown, setDropdown] = useState(false);
-
+  const dispatch = useAppDispatch();
   const handleDropDown = () => {
 
   };
 
   return (
-    <div className="mt-3 relative ">
+    <div className="mt-3 relative z-20">
       <button
         type="button"
         onClick={() => setDropdown(!dropdown)}
@@ -23,22 +26,39 @@ const LanguageSelector = () => {
       </button>
       <div className={`absolute bg-white w-[260px] right-0 border rounded-lg drop-shadow-lg h-[305px] pt-1 pb-[54px] ${dropdown ? 'block' : 'hidden'}`}>
         <div className="max-h-[251px] overflow-auto">
-          <div className="flex bg-white w-full px-4 py-4 gap-2 font-[Inter] text-sm border-t-2 border-gray-100 border-2 border-gray-100">
-            <CheckBox />
+          <div className="flex bg-white w-full px-4 py-4 gap-2 font-[Inter] text-sm border-b-2 border-gray-100">
+            <CheckBox
+              tickState={selectedLanguages.length === languages.length}
+              check={() => dispatch(addAllLanguages())}
+            />
             <p>All Languages</p>
           </div>
           <ul className="">
-            {langs.map((lang) => (
-              <li key={lang} className="px-4 py-1.5 flex gap-2 hover:bg-gray-100">
-                <CheckBox />
-                <span className="text-sm font-[Inter]">{lang}</span>
+            {languages.map((language) => (
+              <li key={language} className="px-4 py-1.5 flex gap-2 hover:bg-gray-100">
+                <CheckBox
+                  check={() => dispatch(setLanguage(language))}
+                  tickState={selectedLanguages.some((lan) => lan === language)}
+                />
+                <span className="text-sm font-[Inter]">{language}</span>
               </li>
             ))}
           </ul>
         </div>
         <div className="absolute bottom-0 flex justify-between w-full p-4 font-[Inter] text-sm border-t-2 border-gray-100">
-          <button type="button" className="font-semibold">Clear all</button>
-          <button type="button" onClick={() => setDropdown(false)}>Close</button>
+          <button
+            type="button"
+            onClick={() => dispatch(clearAllLanguages())}
+            className="font-semibold"
+          >
+            Clear all
+          </button>
+          <button
+            type="button"
+            onClick={() => setDropdown(false)}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

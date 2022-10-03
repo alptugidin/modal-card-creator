@@ -1,37 +1,48 @@
-import React from 'react';
-import { setBG } from '../../../../features/setBG';
-import { ModalTypeProp } from '../Modal1';
+import React, { CSSProperties } from 'react';
+import { ModalProps } from '../modalPropTypes';
+import { useAppSelector } from '../../../../redux/store';
+import style from './index.module.scss';
+import { Modal11Strings } from './Modal11Strings';
 
-const Modal11 = ({ color }:ModalTypeProp) => {
-  const fn = () => {};
+const Modal11 = ({
+  inStory = true, textColor, backgroundColor, otherTextColor, borderColor, themeColor,
+}:ModalProps) => {
+  const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
-    <div className="w-[480px] h-[584px] bg-white rounded-xl relative flex flex-col font-[Inter] px-12 py-10">
+    <div
+      className={style.body}
+      style={{
+        '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
+        '--svgColor': !inStory ? colors.themeColor : themeColor,
+        '--textColor': !inStory ? colors.textColor : textColor,
+        '--borderColor': !inStory ? colors.borderColor : borderColor,
+        '--themeColor': !inStory ? colors.themeColor : themeColor,
+        '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+      } as CSSProperties}
+    >
+      <button type="button" className={style.cancel}>
+        <img src="/cancel.svg" alt="cancel" />
+      </button>
       <div>
-        <img src="/cancel.svg" alt="camcel" className="absolute right-3 top-3" />
-      </div>
-      <div className="basis-1/3 justify-center items-center">
-        <img src="/Modal11/img.png" alt="img" width="160" height="72" className="mx-auto" />
-      </div>
-      <div className="basis-1/3">
-        <p className="text-3xl font-semibold text-center">Check your email</p>
-        <p className="text-xl text-center">Once you deletet your account, you’ll lose all data associatted with it.</p>
-      </div>
-      <div className="basis-1/3">
-        <form action="" className="w-full">
-          <input
-            type="text"
-            placeholder="Enter your email"
-            className="pl-5 placeholder-gray-600 placeholder:text-md border border-b-gray-300 rounded-lg h-12 w-full"
-          />
-        </form>
-        <div>
-          <button type="button" className={`h-12 rounded-lg w-full text-white text-sm mt-5 ${setBG(color)}`}>Sign up</button>
+        <div className={style.imgDiv}>
+          <img src="/Modal11/img.png" alt="" width="160" height="173" />
         </div>
-        <span className="text-sm text-left mt-5">
-          Already
-          {' '}
-          <span className="underline">have an account?</span>
-        </span>
+      </div>
+      <div className={style.textDiv}>
+        <p>{editedText[0] || Modal11Strings[0]}</p>
+        <p>{editedText[1] || Modal11Strings[1]}</p>
+      </div>
+      <div className={style.inputDiv}>
+        <input type="text" placeholder={editedText[2] || Modal11Strings[2]} />
+      </div>
+      <div className={style.signDiv}>
+        <button type="button">{editedText[3] || Modal11Strings[3]}</button>
+      </div>
+      <div className={style.accountText}>
+        <p>
+          {editedText[4] || Modal11Strings[4]}
+        </p>
       </div>
     </div>
   );

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const CheckBox = () => {
-  const [check, setCheck] = useState(false);
-  const handleCheck = () => {
-    setCheck(!check);
-  };
-  return (
-    <button
-      type="button"
-      onClick={handleCheck}
-      className={`w-[18px] h-[18px] bg-gray-100 border border-gray-400 rounded ${check ? 'base-color-bg base-color-border' : ''} `}
-    >
-      {check && <img src="/public/check.svg" alt="check" className="mx-auto" />}
-    </button>
-  );
-};
+interface ICheckBox {
+  tickState:boolean,
+  check(): void,
+}
+
+const CheckBox = ({ check, tickState }:ICheckBox) => (
+  <button
+    type="button"
+    onClick={() => check()}
+    className={`w-[18px] h-[18px] bg-gray-100 border border-gray-400 rounded ${tickState ? 'base-color-bg'
+          + ' base-color-border' : ''} `}
+  >
+    {tickState && <img src="/check.svg" alt="check" className="mx-auto" />}
+  </button>
+);
 
 export default CheckBox;

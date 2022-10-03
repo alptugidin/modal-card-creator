@@ -2,11 +2,14 @@ import React, { CSSProperties } from 'react';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
 import style from './index.module.scss';
+import { Modal31Strings } from './Modal31Strings';
 
 const Modal31 = ({
   inStory = true, borderColor, themeColor, textColor, otherTextColor, backgroundColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const editedText = useAppSelector((state) => state.modalCreate.editedText);
+
   return (
     <div
       className={style.body}
@@ -30,11 +33,8 @@ const Modal31 = ({
             '--textColor': !inStory ? colors.textColor : textColor,
           } as CSSProperties}
         >
-          <p>
-            Good job,
-            <strong>Jenny</strong>
-          </p>
-          <p>Your profile is created!</p>
+          <p>{editedText[0] || Modal31Strings[0]}</p>
+          <p>{editedText[1] || Modal31Strings[1]}</p>
         </div>
         <div
           className={style.btnDiv}
@@ -42,8 +42,8 @@ const Modal31 = ({
             '--bgColor': !inStory ? colors.themeColor : themeColor,
           } as CSSProperties}
         >
-          <button type="button">Go to my profile</button>
-          <button type="button">Go to home</button>
+          <button type="button">{editedText[2] || Modal31Strings[2]}</button>
+          <button type="button">{editedText[3] || Modal31Strings[3]}</button>
         </div>
       </div>
     </div>
