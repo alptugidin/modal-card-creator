@@ -1,0 +1,37 @@
+.body {
+  @apply w-[480px] h-[360px] relative rounded-xl flex flex-col items-center p-10 shadow-2xl ;
+  background-color: var(--bgColor);
+}
+
+.svgDiv {
+  :first-child {
+    fill: var(--themeColor);
+  }
+}
+
+.textDiv {
+  @apply text-center mt-10;
+  :first-child {
+    @apply text-4xl font-bold;
+  }
+  :last-child {
+    @apply text-xl mt-5 px-10;
+  }
+  color: var(--textColor);
+}
+
+.roundedButton {
+  @apply w-[60px] h-[60px] rounded-full border flex justify-center items-center mt-8;
+  border-color: var(--themeColor);
+
+  :first-child {
+    fill: var(--themeColor);
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}
+
+
+

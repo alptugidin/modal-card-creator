@@ -1,0 +1,56 @@
+.body{
+  @apply w-[480px] h-[672px] rounded-xl relative  shadow-2xl flex flex-col items-center p-10 font-[Inter];
+  background-color: var(--bgColor);
+}
+.svgDiv {
+  :first-child, :nth-child(2) {
+    fill: var(--themeColor);
+  }
+}
+
+.textDiv {
+  @apply text-center mt-5;
+  :first-child {
+    @apply text-4xl font-bold;
+  }
+  :last-child {
+    @apply text-xl mt-5 px-10;
+  }
+  color: var(--textColor);
+}
+
+.textDiv2 {
+  @apply w-full mt-10;
+}
+
+.firstTextDiv {
+  @apply flex items-center;
+  :first-child{
+    @apply h-[36px] w-[36px];
+  }
+  :nth-child(2) {
+    @apply ml-5 text-xl font-semibold;
+  }
+  color: var(--textColor);
+}
+
+.sum {
+  @apply ml-14;
+  color: var(--textColor);
+}
+.btnDiv {
+  @apply flex flex-col items-center justify-center gap-5 mt-5 w-full;
+  :first-child {
+    @apply h-12 w-full border-[0] rounded-lg text-white;
+    background-color: var(--themeColor);
+  }
+  :last-child {
+    @apply h-12 w-full border rounded-lg;
+    border-color: var(--borderColor);
+  }
+
+}
+.cancel {
+  @apply absolute top-3 right-3 outline-none border-[0];
+}
+

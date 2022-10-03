@@ -1,0 +1,37 @@
+.body{
+  @apply w-[480px] h-[482px] relative flex rounded-xl p-10 flex-col items-center  shadow-2xl font-[Inter];
+  background-color: var(--bgColor);
+}
+
+.svgDiv {
+  :first-child{
+    fill: var(--themeColor);
+  }
+}
+
+.textDiv {
+  @apply text-center mt-5;
+  :first-child {
+    @apply text-3xl font-bold;
+  }
+  :last-child {
+    @apply text-lg mt-5 px-10;
+  }
+  color: var(--textColor);
+}
+
+
+.signDiv {
+  @apply flex flex-col w-full items-center mx-auto w-full  mt-5;
+  :first-child, :nth-child(2){
+    @apply rounded-lg h-12 border w-full mt-5;
+    border-color: var(--borderColor);
+  }
+  :last-child{
+    @apply mt-5
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

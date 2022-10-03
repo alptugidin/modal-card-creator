@@ -1,0 +1,42 @@
+.body {
+  @apply w-[480px] h-[702px] rounded-xl flex flex-col font-[Inter]  shadow-2xl relative;
+  background-color: var(--bgColor);
+}
+
+.pp {
+  @apply absolute top-0 w-[120px] h-[120px] top-[185px] ml-auto mr-auto left-0 right-3
+}
+
+.textDiv {
+  @apply text-center mt-[70px] px-12;
+  :first-child {
+    @apply font-semibold text-lg
+  }
+  :nth-child(3) {
+    @apply mt-5 text-4xl font-bold;
+  }
+  :nth-child(4){
+    @apply text-xl mt-5;
+  }
+  color: var(--textColor);
+}
+
+.btnDiv {
+  @apply flex w-full justify-center items-center mt-10 gap-5 px-12;
+  :first-child, :last-child {
+    @apply h-12 w-full rounded-lg border;
+    border-color: var(--borderColor);
+  }
+  :first-child {
+    //@apply text-white
+  }
+  :last-child {
+    @apply border-[0] text-white;
+    background-color: var(--themeColor);
+  }
+}
+
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

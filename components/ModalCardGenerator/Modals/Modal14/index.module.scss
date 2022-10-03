@@ -1,0 +1,43 @@
+.body {
+  @apply w-[740px] h-[340px] rounded-xl flex relative font-[Inter] p-10 shadow-2xl;
+  background-color: var(--bgColor);
+}
+
+.ppDiv {
+  @apply flex justify-center pr-5;
+  :first-child {
+    @apply w-[100px] h-[100px]
+  }
+}
+
+.mainDiv {
+  @apply basis-3/4
+}
+
+.infoDiv {
+  @apply h-[100px] flex flex-col justify-center;
+  :first-child{
+    @apply text-2xl font-semibold;
+    color: var(--textColor);
+  }
+  :nth-child(2) {
+    color: var(--otherTextColor)
+  }
+
+}
+
+.textDiv {
+  @apply mt-5;
+  :first-child{
+    color: var(--textColor);
+  }
+  :nth-child(2) {
+    @apply text-sm mt-10;
+    color: var(--otherTextColor);
+  }
+}
+
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

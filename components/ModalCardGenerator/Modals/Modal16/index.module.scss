@@ -1,0 +1,34 @@
+.body {
+  @apply w-[480px] h-[471px] relative flex flex-col items-center p-10 rounded-xl font-[Inter] shadow-2xl ;
+  background-color: var(--bgColor);
+}
+
+.svgDiv {
+  :first-child {
+    fill: var(--themeColor);
+  }
+}
+
+
+.textDiv {
+  @apply text-center mt-10;
+  :first-child {
+    @apply text-5xl font-bold;
+  }
+  :last-child {
+    @apply text-lg mt-5 px-10;
+  }
+  color: var(--textColor);
+}
+
+.signDiv {
+  @apply flex w-full items-center mx-auto w-full;
+  :first-child{
+    @apply rounded-lg h-12 border w-full mt-5 border-[0] text-white;
+    background-color: var(--themeColor);
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

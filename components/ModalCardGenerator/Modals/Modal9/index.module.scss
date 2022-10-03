@@ -1,0 +1,47 @@
+.body {
+  @apply w-[480px] h-[752px] flex flex-col relative font-[Inter] rounded-xl shadow-2xl;
+  background-color: var(--bgColor);
+}
+
+
+.textDiv {
+  @apply text-center mt-5;
+  :first-child {
+    @apply text-3xl font-semibold;
+  }
+  :last-child {
+    @apply text-xl mt-5;
+  }
+  color: var(--textColor);
+}
+
+
+.inputDiv {
+  @apply w-full flex flex-col justify-center items-center px-14 gap-5 mt-5;
+  :first-child, :last-child {
+    @apply h-12 w-full gap-5 rounded-lg placeholder-gray-600 font-normal border pl-6;
+    border-color: var(--borderColor);
+  }
+
+}
+
+
+.signDiv {
+  @apply flex flex-col w-full items-center mx-auto w-full px-14 mt-5;
+  :first-child{
+    @apply rounded-lg h-12 border w-full mt-5 text-white;
+    background-color: var(--themeColor);
+  }
+}
+
+.accountText {
+  @apply text-sm px-14 mt-5;
+  color: var(--otherTextColor);
+  span {
+    @apply underline;
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

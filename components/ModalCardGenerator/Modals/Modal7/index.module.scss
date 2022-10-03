@@ -1,0 +1,33 @@
+.body {
+  @apply w-[480px] h-[288px] rounded-xl rounded-lg flex flex-col relative p-10 font-[Inter] shadow-2xl;
+  background-color: var(--themeColor);
+}
+
+.textDiv {
+   @apply text-center mt-5;
+  :first-child {
+    @apply text-3xl font-semibold;
+  }
+  :last-child {
+    @apply text-xl mt-5;
+  }
+  color: var(--bgColor);
+}
+
+.btnDiv {
+  @apply flex w-full justify-center items-center mt-10 gap-5;
+  :first-child, :last-child {
+    @apply h-12 w-full rounded-lg border;
+  }
+  :first-child {
+    @apply text-white
+  }
+  :last-child {
+    @apply border-[0];
+    background-color: var(--bgColor);
+  }
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

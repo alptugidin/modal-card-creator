@@ -1,0 +1,53 @@
+.body {
+  @apply w-[740px] h-[400px] rounded-xl rounded-lg flex flex-col relative p-10 font-[Inter] shadow-2xl;
+  background-color: var(--themeColor);
+}
+
+.textDiv {
+  @apply text-center mt-5;
+  :first-child {
+    @apply text-3xl font-semibold;
+  }
+  :last-child {
+    @apply text-xl mt-5;
+  }
+  color: var(--textColor);
+}
+
+.inputDiv {
+  @apply flex flex-col justify-center items-center mt-10 w-1/2 mx-auto;
+  :first-child{
+    @apply h-12 rounded-lg w-full border placeholder-gray-600 font-normal pl-6;
+    border-color: var(--borderColor);
+  }
+}
+
+.btnDiv {
+  @apply flex items-center w-1/2 mx-auto justify-between mt-5;
+  :nth-child(2) {
+    @apply text-[13px];
+    color: var(--otherTextColor)
+  }
+}
+
+.toggleButton {
+  @apply h-[23px] w-[23px] rounded-full border;
+  border-color: var(--borderColor);
+}
+
+.signDiv {
+  @apply flex w-full justify-end mx-auto w-1/2;
+  :first-child{
+    @apply rounded-lg h-12 border w-1/2 mt-5;
+    background-color: var(--textColor);
+  }
+}
+
+.active {
+  @apply bg-white w-1/2 h-1/2 rounded-full mx-auto;
+  background-color: var(--textColor);
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

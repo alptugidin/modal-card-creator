@@ -1,0 +1,32 @@
+.body {
+  @apply w-[480px] h-[226px] rounded-xl relative font-[Inter] p-10 shadow-2xl;
+  background-color: var(--bgColor);
+}
+
+.textDiv{
+  :first-child {
+    @apply text-3xl font-semibold text-center;
+    color: var(--textColor);
+  }
+}
+
+.emojiDiv {
+  @apply flex justify-between mt-10;
+}
+
+.roundedDiv {
+  @apply w-[59px] h-[59px] border rounded-full flex justify-center items-center;
+  border-color: var(--borderColor);
+  :first-child{
+    @apply text-[36px] text-center mb-[1px] ;
+  }
+}
+
+.active {
+  @apply outline outline-4;
+  outline-color: var(--themeColor);
+}
+
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}

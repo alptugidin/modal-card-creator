@@ -1,0 +1,62 @@
+.body {
+  @apply w-[480px] h-[425px] rounded-xl font-[Inter] relative;
+}
+
+.innerBody {
+  @apply w-full h-[365px] rounded-xl absolute bottom-0 flex flex-col items-center shadow-2xl ;
+  background-color: var(--themeColor);
+}
+
+.svgDiv {
+  @apply absolute -top-[60px];
+  :first-child, :nth-child(3) {
+    fill: var(--themeColor);
+  }
+}
+
+.textDiv {
+  @apply text-center mt-[100px] h-[220px];
+  :first-child {
+    @apply text-3xl font-bold;
+  }
+  :last-child {
+    @apply text-xl mt-3 px-10;
+  }
+  color: var(--textColor);
+}
+
+.innerBody1 {
+  @apply w-[480px] h-[220px] bg-opacity-95 bg-white rounded-t-xl;
+}
+
+.innerBody2 {
+  @apply w-[480px] h-[145px] bg-white rounded-b-xl;
+}
+
+.emojiDiv {
+  @apply flex justify-around mt-10;
+}
+
+.roundedDiv{
+  @apply w-[59px] h-[59px] rounded-full border text-[36px] flex items-center justify-center;
+}
+
+
+.active {
+  @apply outline outline-4;
+  outline-color: var(--themeColor);
+}
+
+.emojiText {
+  @apply opacity-40;
+  color: var(--otherTextColor);
+}
+
+.activeText {
+  @apply opacity-100;
+  color: var(--otherTextColor);
+}
+.cancel {
+  @apply absolute top-3 right-3 border-[0] outline-none;
+}
+
