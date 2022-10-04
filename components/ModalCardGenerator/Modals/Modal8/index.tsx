@@ -10,6 +10,7 @@ const Modal8 = ({
   const colors = useAppSelector((state) => state.appearance.style);
   const [toggle, setToggle] = useState<boolean>(true);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   return (
     <div
@@ -21,6 +22,8 @@ const Modal8 = ({
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <button type="button" className={style.cancel}>

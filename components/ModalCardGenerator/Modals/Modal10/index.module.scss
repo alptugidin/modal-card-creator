@@ -1,5 +1,5 @@
 .body {
-  @apply flex relative font-[Inter] rounded-xl w-[740px] h-[443px] overflow-hidden shadow-2xl;
+  @apply flex relative font-[Inter] rounded-xl w-[740px] h-[443px] overflow-hidden shadow-2xl transition-all;
   background-color: var(--bgColor);
 }
 

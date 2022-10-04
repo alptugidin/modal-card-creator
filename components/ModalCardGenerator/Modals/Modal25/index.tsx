@@ -9,9 +9,17 @@ const Modal25 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   return (
-    <div className={style.body} style={{ '--c': colors.backgroundColor } as CSSProperties}>
+    <div
+      className={style.body}
+      style={{
+        '--c': colors.backgroundColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+      } as CSSProperties}
+    >
       <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
       </button>

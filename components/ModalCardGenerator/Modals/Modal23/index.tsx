@@ -9,6 +9,7 @@ const Modal23 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   const emojis = [
     [<p>&#129395;</p>, 'Cool'],
@@ -28,6 +29,8 @@ const Modal23 = ({
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <div className={style.innerBody}>

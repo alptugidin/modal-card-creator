@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import FormData from 'form-data';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setImgUrl } from '../../features/appearanceSlice';
 
 export interface ImageUploaderProps {
   type:string
@@ -13,7 +15,8 @@ interface HTMLInputEvent extends Event {
 const ImageUploader = ({ type }:ImageUploaderProps) => {
   const [loading, setLoading] = useState(false);
   const [src, setSrc] = useState();
-  const handleImageInput = (e?:HTMLInputEvent) => {
+  const dispatch = useDispatch();
+  const handleImageInput = (e?:ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
     // @ts-ignore
     const files: any = e.target.files[0];
@@ -28,6 +31,9 @@ const ImageUploader = ({ type }:ImageUploaderProps) => {
       })
         .then((res) => {
           setSrc(res.data.data.thumb);
+          if (type === 'image') {
+            dispatch(setImgUrl(res.data.data.thumb));
+          }
         }).catch((err) => {
           console.log(err);
         }).finally(() => {

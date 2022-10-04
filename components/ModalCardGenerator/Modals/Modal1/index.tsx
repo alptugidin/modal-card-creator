@@ -8,6 +8,8 @@ const Modal1 = ({
   inStory = true, backgroundColor, borderColor, textColor, otherTextColor, themeColor,
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const size = useAppSelector((state) => state.appearance.size);
+  const position = useAppSelector((state) => state.appearance.position);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
   return (
     <div
@@ -18,6 +20,11 @@ const Modal1 = ({
         '--textColor': !inStory ? colors.textColor : textColor,
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+        // top: '0',
+        // right: '0',
+        // position: inStory ? 'fixed' : '',
       } as CSSProperties}
     >
 

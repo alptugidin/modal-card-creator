@@ -13,6 +13,8 @@ const Appearance = () => {
   const position = useAppSelector((state) => state.appearance.position);
   const colors = useAppSelector((state) => state.appearance.style);
   const activeColor = useAppSelector((state) => state.appearance.activeColor);
+  const scale = ['0.8', '1', '1.2'];
+  const sizes = ['Small', 'Medium', 'Large'];
   const positionRadius = (place:number):string => {
     let output:string = '';
     if (place === 0) {
@@ -27,11 +29,8 @@ const Appearance = () => {
     return output;
   };
 
-  const handleChangeSize = (e:React.MouseEvent) => {
-    const _size = (e.target as HTMLButtonElement).textContent;
-    if (_size !== null) {
-      dispatch(changeSize(_size));
-    }
+  const handleChangeSize = (i:number) => {
+    dispatch(changeSize(i));
   };
 
   const handleChangePosition = (e:React.MouseEvent) => {
@@ -62,14 +61,14 @@ const Appearance = () => {
             <p className="font-[Inter] font-medium mt-7">Size</p>
             <div className="w-fit">
               <div className="flex bg-[#F5F5F5] rounded-xl p-1 mt-3">
-                {['Small', 'Medium', 'Large'].map((el) => (
+                {scale.map((el, index) => (
                   <button
                     key={el}
                     type="button"
-                    onClick={handleChangeSize}
+                    onClick={() => handleChangeSize(index)}
                     className={`${el === size ? 'bg-white' : 'text-gray-500'} text-xs rounded-lg leading-[42px] px-5 h-[42px] text-center font-[Inter] font-semibold`}
                   >
-                    {el}
+                    {sizes[index]}
                   </button>
                 ))}
               </div>

@@ -9,6 +9,8 @@ const Modal26 = ({
 }:ModalProps) => {
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
   const colors = useAppSelector((state) => state.appearance.style);
+  const size = useAppSelector((state) => state.appearance.size);
+
   const [toggle, setToggle] = useState(3);
   const handleOnClick = (e:number, i:number) => {
     const place = e + i;
@@ -17,7 +19,11 @@ const Modal26 = ({
   return (
     <div
       className={style.body}
-      style={{ '--c': !inStory ? colors.backgroundColor : backgroundColor } as CSSProperties}
+      style={{
+        '--c': !inStory ? colors.backgroundColor : backgroundColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+      } as CSSProperties}
     >
       <div className={style.cancelDiv}>
         <img src="/cancel.svg" alt="cancel" />

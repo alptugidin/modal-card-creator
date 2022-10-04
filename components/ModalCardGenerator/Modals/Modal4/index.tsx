@@ -7,9 +7,10 @@ import style from './index.module.scss';
 const Modal4 = ({
   inStory = true, themeColor, textColor, otherTextColor, borderColor, backgroundColor,
 }:ModalProps) => {
-  function fn() {}
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
+
   return (
     <div
       className={style.body}
@@ -20,6 +21,8 @@ const Modal4 = ({
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <div className={style.head}>

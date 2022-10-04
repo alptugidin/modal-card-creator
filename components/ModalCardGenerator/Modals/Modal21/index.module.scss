@@ -1,5 +1,5 @@
 .body{
-  @apply w-[480px] h-[672px] rounded-xl relative  shadow-2xl flex flex-col items-center p-10 font-[Inter];
+  @apply w-[480px] h-[672px] rounded-xl relative  shadow-2xl flex flex-col items-center p-10 font-[Inter] transition-all;
   background-color: var(--bgColor);
 }
 .svgDiv {

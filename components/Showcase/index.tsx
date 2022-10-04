@@ -26,6 +26,7 @@ const Showcase = () => (
         <div>
           {/* <button */}
           {/*  type="button" */}
+          {/* eslint-disable-next-line max-len */}
           {/*  className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium" */}
           {/* > */}
           {/*  Try it out now */}

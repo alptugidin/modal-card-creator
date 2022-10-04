@@ -1,5 +1,5 @@
 .body {
-  @apply w-[480px] h-[425px] rounded-xl font-[Inter] relative;
+  @apply w-[480px] h-[425px] rounded-xl font-[Inter] relative transition-all;
 }
 
 .innerBody {

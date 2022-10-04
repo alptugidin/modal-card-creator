@@ -1,5 +1,5 @@
 .body {
-  @apply w-[480px] h-[446px] flex flex-col relative rounded-xl font-[Inter] p-10 justify-center shadow-2xl;
+  @apply w-[480px] h-[446px] flex flex-col relative rounded-xl font-[Inter] p-10 justify-center shadow-2xl transition-all;
   background-color: var(--bgColor);
 }
 

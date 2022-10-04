@@ -6,17 +6,24 @@ export const appearanceSlice = createSlice({
     size: 'Medium',
     position: 4,
     activeColor: '#7D4AEA',
+    imgUrl: '',
     style: {
-      textColor: '#000000',
+      backgroundColor: '#ffffff',
       themeColor: '#7D4AEA',
       otherTextColor: '#777777',
       borderColor: '#DDDDDD',
-      backgroundColor: '#ffffff',
+      textColor: '#000000',
     },
   },
   reducers: {
-    changeSize: (state, action:PayloadAction<string>) => {
-      state.size = action.payload;
+    changeSize: (state, action:PayloadAction<number>) => {
+      if (action.payload === 0) {
+        state.size = '0.8';
+      } else if (action.payload === 1) {
+        state.size = '1';
+      } else {
+        state.size = '1.1';
+      }
     },
 
     changePosition: (state, action:PayloadAction<number>) => {
@@ -31,10 +38,14 @@ export const appearanceSlice = createSlice({
       state.style = { ...state.style, [action.payload.name]: action.payload.value };
     },
 
+    setImgUrl: (state, action) => {
+      state.imgUrl = action.payload;
+    },
+
   },
 });
 
 export const {
-  changeSize, changePosition, setActiveColor, changeStyle,
+  changeSize, changePosition, setActiveColor, changeStyle, setImgUrl,
 } = appearanceSlice.actions;
 export default appearanceSlice.reducer;

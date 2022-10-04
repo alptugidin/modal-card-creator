@@ -29,14 +29,14 @@ const Home: NextPageWithLayout = () => {
       <div className="container mx-auto">
         <ModalCardGenerator />
         <div className="flex">
-          <div className="basis-1/3">
+          <div className="basis-1/3 break-all">
             <Appearance />
             <Content />
             <TargetingRules />
             <SettingsAndCode />
           </div>
           <div className="basis-2/3 relative pb-20">
-            <div className="sticky h-auto top-2 w-full flex items-start justify-center">
+            <div className="sticky h-auto top-2 w-full flex justify-end">
               <Suspense fallback={<p>Loading...</p>}>
                 {DynamicRender()}
               </Suspense>

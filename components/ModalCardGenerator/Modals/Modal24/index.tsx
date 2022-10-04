@@ -9,9 +9,17 @@ const Modal24 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   return (
-    <div className={[style.modal, style.bg].join(' ')} style={{ '--custom-color': colors.backgroundColor } as CSSProperties}>
+    <div
+      className={[style.modal, style.bg].join(' ')}
+      style={{
+        '--custom-color': colors.backgroundColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+      } as CSSProperties}
+    >
       <div className={style.head}>
         <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M30 60C46.5685 60 60 46.5685 60 30C60 13.4315 46.5685 0 30 0C13.4315 0 0 13.4315 0 30C0 46.5685 13.4315 60 30 60Z" fill={colors.themeColor} />

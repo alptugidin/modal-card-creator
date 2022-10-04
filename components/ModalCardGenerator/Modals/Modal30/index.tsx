@@ -11,9 +11,16 @@ const Modal30 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   return (
-    <div className={style.body}>
+    <div
+      className={style.body}
+      style={{
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+      } as CSSProperties}
+    >
       <div
         className={style.body1}
         style={{

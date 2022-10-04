@@ -3,13 +3,14 @@ import style from './index.module.scss';
 import { ModalProps } from '../modalPropTypes';
 import { useAppSelector } from '../../../../redux/store';
 import { Modal3Strings } from './Modal3Strings';
-import { Modal4Strings } from '../Modal4/Modal4Strings';
 import { Modal1Strings } from '../Modal1/Modal1Strings';
 
 const Modal3 = ({
   inStory = true, textColor, themeColor, backgroundColor, otherTextColor, borderColor,
 } :ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
+  const size = useAppSelector((state) => state.appearance.size);
+
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
 
   const [toggle, setToggle] = useState<string | null>('');
@@ -32,6 +33,8 @@ const Modal3 = ({
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <div className={style.textDiv}>

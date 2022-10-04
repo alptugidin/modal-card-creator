@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CheckBox from '../commons/CheckBox';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { addAllLanguages, clearAllLanguages, setLanguage } from '../../features/targetingSlice';
 
 const LanguageSelector = () => {
-  const languages = useAppSelector((state) => state.targeting.languages);
-  const selectedLanguages = useAppSelector((state) => state.targeting.selectedLanguages);
+  const { targeting } = useAppSelector((state) => state.targeting);
   const [dropdown, setDropdown] = useState(false);
   const dispatch = useAppDispatch();
-  const handleDropDown = () => {
-
-  };
+  useEffect(() => {
+    if (!targeting.languages.isActive) {
+      setDropdown(false);
+    }
+  }, [targeting.languages.isActive]);
 
   return (
     <div className="mt-3 relative z-20">
@@ -28,17 +29,17 @@ const LanguageSelector = () => {
         <div className="max-h-[251px] overflow-auto">
           <div className="flex bg-white w-full px-4 py-4 gap-2 font-[Inter] text-sm border-b-2 border-gray-100">
             <CheckBox
-              tickState={selectedLanguages.length === languages.length}
+              tickState={targeting.selectedLanguages.length === targeting.languages.value.length}
               check={() => dispatch(addAllLanguages())}
             />
             <p>All Languages</p>
           </div>
           <ul className="">
-            {languages.map((language) => (
+            {targeting.languages.value.map((language) => (
               <li key={language} className="px-4 py-1.5 flex gap-2 hover:bg-gray-100">
                 <CheckBox
                   check={() => dispatch(setLanguage(language))}
-                  tickState={selectedLanguages.some((lan) => lan === language)}
+                  tickState={targeting.selectedLanguages.some((lan) => lan === language)}
                 />
                 <span className="text-sm font-[Inter]">{language}</span>
               </li>

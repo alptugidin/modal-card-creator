@@ -1,5 +1,5 @@
 .body {
-  @apply w-[740px] h-[400px] rounded-xl rounded-lg flex flex-col relative p-10 font-[Inter] shadow-2xl;
+  @apply w-[740px] h-[400px] rounded-xl rounded-lg flex flex-col relative p-10 font-[Inter] shadow-2xl transition-all;
   background-color: var(--themeColor);
 }
 
@@ -11,7 +11,7 @@
   :last-child {
     @apply text-xl mt-5;
   }
-  color: var(--textColor);
+  color: var(--bgColor);
 }
 
 .inputDiv {
@@ -26,26 +26,26 @@
   @apply flex items-center w-1/2 mx-auto justify-between mt-5;
   :nth-child(2) {
     @apply text-[13px];
-    color: var(--otherTextColor)
+    color: var(--bgColor);
   }
 }
 
 .toggleButton {
   @apply h-[23px] w-[23px] rounded-full border;
-  border-color: var(--borderColor);
+  border-color: var(--bgColor);
 }
 
 .signDiv {
   @apply flex w-full justify-end mx-auto w-1/2;
   :first-child{
-    @apply rounded-lg h-12 border w-1/2 mt-5;
-    background-color: var(--textColor);
+    @apply rounded-lg h-12 border w-1/2 mt-5 text-white;
+    background-color: var(--themeColor);
   }
 }
 
 .active {
   @apply bg-white w-1/2 h-1/2 rounded-full mx-auto;
-  background-color: var(--textColor);
+  background-color: var(--bgColor);
 }
 
 .cancel {

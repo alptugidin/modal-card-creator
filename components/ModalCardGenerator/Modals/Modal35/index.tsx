@@ -9,6 +9,7 @@ const Modal35 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   return (
     <div
@@ -16,6 +17,8 @@ const Modal35 = ({
       style={{
         '--bgColor': !inStory ? colors.backgroundColor : backgroundColor,
         '--textColor': !inStory ? colors.textColor : textColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <button type="button" className={style.cancel}>

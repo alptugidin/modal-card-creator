@@ -1,12 +1,12 @@
 .body {
-  @apply w-[480px] h-[466px] relative flex flex-col font-[Inter] p-10 rounded-xl shadow-2xl;
+  @apply w-[480px] h-[466px] relative flex flex-col font-[Inter] p-10 rounded-xl shadow-2xl transition-all;
   background-color: var(--themeColor);
 }
 
 .svgDiv {
   @apply mx-auto mt-5;
   :first-child, :nth-child(2), :nth-child(3), :nth-child(4){
-    fill: var(--textColor);
+    fill: var(--bgColor);
   }
 }
 
@@ -20,12 +20,12 @@
   :last-child {
     @apply text-lg mt-5 px-10;
   }
-  color: var(--textColor);
+  color: var(--bgColor);
 }
 
 .bottomDiv {
   @apply absolute bottom-0 right-0 w-full h-[64px] flex justify-center items-center bg-black text-white bg-opacity-10 text-xl rounded-b-xl;
-  color:  var(--textColor);
+  color:  var(--bgColor);
 }
 
 

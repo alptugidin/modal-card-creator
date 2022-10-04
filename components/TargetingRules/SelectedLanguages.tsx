@@ -3,7 +3,7 @@ import { useAppSelector } from '../../redux/store';
 
 const SelectedLanguages = () => {
   const [expand, setExpand] = useState(false);
-  const selectedLanguages = useAppSelector((state) => state.targeting.selectedLanguages);
+  const selectedLanguages = useAppSelector((state) => state.targeting.targeting.selectedLanguages);
   return (
     <div className="mt-3 border rounded-lg bg-white z-10 flex flex-wrap items-center gap-[3px] pl-[2px] pt-[2px] pr-5 h-[34px] w-full relative">
       <button

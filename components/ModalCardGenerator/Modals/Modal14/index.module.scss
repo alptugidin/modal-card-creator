@@ -1,5 +1,5 @@
 .body {
-  @apply w-[740px] h-[340px] rounded-xl flex relative font-[Inter] p-10 shadow-2xl;
+  @apply w-[740px] h-[340px] rounded-xl flex relative font-[Inter] p-10 shadow-2xl transition-all;
   background-color: var(--bgColor);
 }
 
@@ -18,7 +18,7 @@
   @apply h-[100px] flex flex-col justify-center;
   :first-child{
     @apply text-2xl font-semibold;
-    color: var(--textColor);
+    color: var(--otherTextColor);
   }
   :nth-child(2) {
     color: var(--otherTextColor)

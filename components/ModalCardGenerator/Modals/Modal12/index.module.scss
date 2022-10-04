@@ -1,5 +1,5 @@
 .body {
-  @apply w-[740px] h-[563px] relative font-[Inter] rounded-xl;
+  @apply w-[740px] h-[563px] relative font-[Inter] rounded-xl transition-all;
 }
 
 .imgDiv {

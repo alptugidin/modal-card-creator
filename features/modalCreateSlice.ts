@@ -30,6 +30,7 @@ export const modalCreateSlice = createSlice({
       state.editedText = { ...action.payload };
     },
     updateText: (state, action) => {
+      // eslint-disable-next-line max-len
       state.editedText = { ...state.editedText, [Object.keys(state.editedText)[action.payload.index]]: action.payload.name };
     },
   },

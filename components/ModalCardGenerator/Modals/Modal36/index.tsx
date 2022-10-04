@@ -9,10 +9,17 @@ const Modal36 = ({
 }:ModalProps) => {
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
+  const size = useAppSelector((state) => state.appearance.size);
 
   const [gender, setGender] = useState('Women');
   return (
-    <div className={style.body}>
+    <div
+      className={style.body}
+      style={{
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
+      } as CSSProperties}
+    >
       <button type="button" className={style.cancel}>
         <img src="/cancel.svg" alt="cancel" />
       </button>
@@ -28,6 +35,7 @@ const Modal36 = ({
                 d="M4.22897 2L22.6035 24.3868L4.31265 46H345.687L327.396 24.3868L345.771 2H4.22897ZM0 0H350L330 24.3672L350 48H0L20 24.3672L0 0Z"
                 style={{
                   '--svgColor': !inStory ? colors.themeColor : themeColor,
+
                 } as CSSProperties}
               />
             </svg>

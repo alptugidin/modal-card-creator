@@ -1,5 +1,5 @@
 .body {
-  @apply rounded-xl  w-[480px] h-[687px] relative shadow-2xl  font-[Inter];
+  @apply rounded-xl  w-[480px] h-[687px] relative shadow-2xl  font-[Inter] transition-all;
 }
 
 .cancelDiv {

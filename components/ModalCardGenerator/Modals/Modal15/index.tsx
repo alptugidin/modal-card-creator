@@ -10,6 +10,8 @@ const Modal15 = ({
   const colors = useAppSelector((state) => state.appearance.style);
   const editedText = useAppSelector((state) => state.modalCreate.editedText);
   const emojis = [<p>😶</p>, <p>&#128542;</p>, <p>&#128524;</p>, <p>🤗</p>, <p>😄</p>];
+  const size = useAppSelector((state) => state.appearance.size);
+
   const [toggle, setToggle] = useState<string | null>('');
   const handleOnClick = (e:React.MouseEvent<HTMLButtonElement>) => {
     const place = (e.currentTarget as HTMLButtonElement).getAttribute('data-place');
@@ -25,6 +27,8 @@ const Modal15 = ({
         '--borderColor': !inStory ? colors.borderColor : borderColor,
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         '--otherTextColor': !inStory ? colors.otherTextColor : otherTextColor,
+        transform: `scale(${size})`,
+        transformOrigin: 'top right',
       } as CSSProperties}
     >
       <button type="button" className={style.cancel}>
