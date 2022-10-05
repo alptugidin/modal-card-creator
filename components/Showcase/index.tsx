@@ -4,7 +4,7 @@ import CamperCard from './CamperCard';
 import CamperCardTransparent from './CamperCardTransparent';
 
 const Showcase = () => (
-  <div>
+  <div className="xl:block hidden">
     <div className="bg-gradient-to-b from-white to-[#E3F2F7]">
       <div className="h-[calc(100vh_-_76px)] min-h-[834px] mx-auto container">
         <div className="py-10">
@@ -24,15 +24,8 @@ const Showcase = () => (
           </div>
         </div>
         <div>
-          {/* <button */}
-          {/*  type="button" */}
-          {/* eslint-disable-next-line max-len */}
-          {/*  className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium" */}
-          {/* > */}
-          {/*  Try it out now */}
-          {/* </button> */}
           <Link to="chooseTemplate" spy smooth duration={500}>
-            <div className="base-color-bg text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium w-fit cursor-pointer">
+            <div className="bg-purple-600 text-white px-6 py-3 rounded-xl base-color-shadow text-[Inter] font-medium w-fit cursor-pointer">
               Try it out now
             </div>
           </Link>

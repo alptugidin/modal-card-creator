@@ -1,5 +1,3 @@
-//@import "https://fonts.googleapis.com/css2?family=Inter:wght@500&display=optional";
-//@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap";
 @tailwind base  ;
 @tailwind components;
 @tailwind utilities;
@@ -26,50 +24,11 @@ input[type="file"] {
 }
 $base-color: #7D4AEA;
 
-$theme-colors: (
-        "black":#000,
-        "orange":#F37C34,
-        "darkgrey":#777777,
-        "lightgrey":#DDDDDD,
-        "white":#fff
-);
-
-$count:1;
-@each $name, $hex in $theme-colors{
-    .theme-#{$count} {
-      background-color: $hex;
-    }
-    $count: $count + 1;
-}
-
-.base-color {
-  color: $base-color;
-}
-
-.base-color-bg {
-  background-color: $base-color;
-}
-
-.base-color-border {
-  border-color: $base-color;
-}
-
-.base-color-text{
-  color: $base-color;
-}
 
 .base-color-shadow {
   box-shadow: 0 3px 7px 1px rgba(125, 74, 234, 0.2);
 }
 
-.ccc{
-  background: linear-gradient(239.75deg, rgba(255, 255, 255, 0.7) 1.2%, rgba(255, 255, 255, 0) 70.51%);
-  border-radius: 40px 40px 0px 0px;
-}
-
-.outline-none{
-  outline-offset: 0;
-}
 
 input::-webkit-calendar-picker-indicator {
   opacity:0;
@@ -81,4 +40,8 @@ input[type="text"]{
 }
 input[type="text"]:focus{
   outline : none;
+}
+
+#code[data-text=script] {
+  @apply text-yellow-300
 }

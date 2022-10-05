@@ -20,7 +20,7 @@ const Modal31 = ({
         transformOrigin: 'top right',
       } as CSSProperties}
     >
-      <button className={style.cancelDiv}>
+      <button type="button" className={style.cancelDiv}>
         <img src="/cancel.svg" alt="cancel" />
       </button>
       <div className={style.main}>

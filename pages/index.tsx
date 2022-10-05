@@ -17,7 +17,6 @@ const Home: NextPageWithLayout = () => {
 
   const DynamicRender = () => {
     const Modal = modals[activeModal - 1];
-    console.log(activeModal);
     dispatch(updateEditableTextCount(strings[activeModal - 1].length));
     dispatch(updateEditableTexts(strings[activeModal - 1]));
     return <Modal inStory={false} />;
@@ -25,10 +24,13 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <div className="">
-      <Showcase />
-      <div className="container mx-auto">
+      <div>
+
+        <Showcase />
         <ModalCardGenerator />
-        <div className="flex">
+      </div>
+      <div className="container mx-auto">
+        <div className="xl:flex">
           <div className="basis-1/3 break-all">
             <Appearance />
             <Content />

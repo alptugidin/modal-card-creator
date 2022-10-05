@@ -63,3 +63,7 @@
     background-color: var(--themeColor);
   }
 }
+
+.cancel {
+  @apply absolute top-3 right-3 outline-none border-[0];
+}

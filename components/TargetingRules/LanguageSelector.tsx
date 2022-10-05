@@ -20,8 +20,22 @@ const LanguageSelector = () => {
         onClick={() => setDropdown(!dropdown)}
         className="border rounded-lg h-[34px] flex justify-between items-center px-3 w-full focus:border-purple-500"
       >
-        <p className="font-[Poppins] text-sm text-gray-500 leading-[34px]">Select</p>
-        <div>
+        {targeting.selectedLanguages.length > 0 ? (
+          <p className="text-left absolute italic">
+            {targeting.selectedLanguages.length}
+            {' '}
+            {targeting.selectedLanguages.length === 1 ? (
+              'languge'
+            ) : (
+              'languages'
+            )}
+            {' '}
+            selected
+          </p>
+        ) : (
+          <p className="font-[Poppins] text-sm text-gray-500 leading-[34px]">Select</p>
+        )}
+        <div className="absolute right-3">
           <img src="/dd.svg" alt="svg" />
         </div>
       </button>

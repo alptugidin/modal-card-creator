@@ -13,7 +13,7 @@ const ModalCardGenerator = () => {
   };
 
   return (
-    <div id="ModalCardGenerator">
+    <div id="ModalCardGenerator" className="mx-auto container">
       <div className="flex py-24">
         <div className="basis-2/5">
           <p className="text-4xl font-[Poppins] font-semibold tracking-tighter">Modal Card Generator</p>

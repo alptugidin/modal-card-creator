@@ -113,6 +113,8 @@ export const targetingSlice = createSlice({
         if (state.targeting.scroll.isActive) {
           state.targeting.scroll.isActive = false;
         }
+      } else {
+        state.targeting.seconds.value = 0;
       }
     },
 
@@ -126,6 +128,8 @@ export const targetingSlice = createSlice({
         if (state.targeting.seconds.isActive) {
           state.targeting.seconds.isActive = false;
         }
+      } else {
+        state.targeting.scroll.value = 0;
       }
     },
 

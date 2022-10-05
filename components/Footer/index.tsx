@@ -8,7 +8,7 @@ const Footer = () => {
 
       <p className="font-[Poppins] text-3xl text-center font-semibold">Conversion & UX ready popups & modals</p>
 
-      <div className="flex justify-between">
+      <div className="xl:flex xl:justify-between">
         <div className="w-[378px] h-[267px] bg-gray-100 rounded-xl px-16 flex flex-col justify-start items-center gap-4 mt-10">
           <div className="mt-10">
             <img src="/guard.svg" alt="guard" />
@@ -56,7 +56,7 @@ const Footer = () => {
       <p className="font-[Poppins] text-3xl text-center font-semibold mt-24">Frequently Asked Questions</p>
       <CollapsableFAQ />
       <p className="text-3xl text-center font-[Poppins] font-semibold mt-24">Build great popups without code</p>
-      <div className="flex justify-between mt-16 text-center">
+      <div className="xl:flex justify-between mt-16 text-center">
 
         <div className="flex flex-col items-center gap-2 basis-1/4 px-12">
           <div className="w-fit">

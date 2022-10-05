@@ -13,7 +13,7 @@ const Appearance = () => {
   const position = useAppSelector((state) => state.appearance.position);
   const colors = useAppSelector((state) => state.appearance.style);
   const activeColor = useAppSelector((state) => state.appearance.activeColor);
-  const scale = ['0.8', '1', '1.2'];
+  const scale = ['0.8', '1', '1.1'];
   const sizes = ['Small', 'Medium', 'Large'];
   const positionRadius = (place:number):string => {
     let output:string = '';
@@ -46,7 +46,7 @@ const Appearance = () => {
   };
 
   return (
-    <div id="Appearance" className="">
+    <div id="Appearance" className="pt-10">
       <div className="flex items-center gap-4">
         <img src="/stepTwo.svg" alt="stepTwo" />
         <span className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">
@@ -86,7 +86,7 @@ const Appearance = () => {
                   key={pos.toString()}
                   data-pos={pos}
                   onClick={handleChangePosition}
-                  className={`w-[24px] h-[15px] border border-gray-300 ${positionRadius(pos)} ${pos === position && 'base-color-bg'}`}
+                  className={`w-[24px] h-[15px] border border-gray-300 ${positionRadius(pos)} ${pos === position && 'bg-purple-500'}`}
                 />
               ))}
             </div>

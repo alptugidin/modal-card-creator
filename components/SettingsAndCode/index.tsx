@@ -1,7 +1,8 @@
-import React, { createRef, useRef } from 'react';
+import React, { createRef, useRef, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { useDispatch } from 'react-redux';
+import Head from 'next/head';
 import { useAppSelector } from '../../redux/store';
 import EditInput from '../commons/EditInput';
 import { setSendClick, setSendForm, setWebHook } from '../../features/targetingSlice';
@@ -12,17 +13,23 @@ const SettingsAndCode = () => {
   const appearance = useAppSelector((state) => state.appearance);
   const { editedText } = useAppSelector((state) => state.modalCreate);
   const { targeting } = useAppSelector((state) => state.targeting);
-  const codeRef = createRef();
-  const dispatch = useDispatch();
-  const handleCopy = () => {
-    const { innerText } = (document.getElementById('code') as HTMLElement);
-    navigator.clipboard.writeText(innerText).finally(() => {});
-  };
-
-  const code = `
-    <script type="text/javascript" src="http://localhost:3000/Modal${modalID}/modal${modalID}.js"></script>
-    <script>window.userData = ({
-        size:"${appearance.size}",
+  const [copiedEffect, setCopiedEffect] = useState(false);
+  const generateCode = ():string => {
+    const sizeConvert = ():string => {
+      let output;
+      if (appearance.size === '0.8') {
+        output = 'Small';
+      } else if (appearance.size === '1') {
+        output = 'Medium';
+      } else {
+        output = 'Large';
+      }
+      return output;
+    };
+    return `
+    window.userData = ({
+        id:"${modalID}",
+        size:"${sizeConvert()}",
         pos:${appearance.position},
         color:{
           background:"${appearance.style.backgroundColor}",
@@ -33,7 +40,7 @@ const SettingsAndCode = () => {
         },
         img:"${appearance.imgUrl}",
         content:[${(Object.values(editedText).map((c) => `"${c}"`))}],
-        target:[${(Object.values(targeting.visitorDevice))}],
+        target:[${(Object.values(targeting.visitorDevice).slice(1, 3))}],
         seconds:${targeting.seconds.value},
         scroll:${targeting.scroll.value},
         source:"${targeting.source.value}",
@@ -42,10 +49,25 @@ const SettingsAndCode = () => {
         hook:"${targeting.webhook}",
         sendForm:"${targeting.sendForm}",
         sendClick:"${targeting.sendClick}"
-	})
-</script>`;
+	})`;
+  };
+  const dispatch = useDispatch();
+  const handleCopy = () => {
+    const { innerText } = (document.getElementById('code') as HTMLElement);
+    navigator.clipboard.writeText(innerText).finally(() => {});
+    setCopiedEffect(true);
+    setTimeout(() => {
+      setCopiedEffect(false);
+    }, 800);
+  };
+
   return (
     <div className="mt-24">
+      <Head>
+        <title>modal.cards</title>
+        <meta name="description" content="" />
+        <link rel="icon" href="/logo.svg" />
+      </Head>
       <div className="flex items-center gap-4">
         <img src="/stepFive.svg" alt="" />
         <p className="font-[Poppins] font-bold text-xl tracking-tight whitespace-pre">Settings and Code</p>
@@ -69,14 +91,48 @@ const SettingsAndCode = () => {
               <p className="font-[Poppins]">Send click data</p>
             </div>
           </div>
-          <div className="w-full min-h-[260px] bg-[#333333] rounded-lg mt-7 relative p-5 text-sm text-white pb-12">
+          <div className="w-full min-h-[260px] bg-[#333333] rounded-lg mt-7 relative p-5 text-sm text-white pb-12 relative">
+            <div className={`absolute left-0 top-0 w-full h-full bg-purple-500 z-30 rounded-lg bg-opacity-20 ${copiedEffect ? 'block' : 'hidden'}`}>
+              <p className="text-3xl bg-white text-purple-500 ml-auto mr-auto w-fit px-3 py-1 rounded-full mt-[25%] font-semibold ">Copied!</p>
+            </div>
             <p id="code">
-              {code}
+              <span>
+                &lt;
+                <span className="text-yellow-500">
+                  script type=
+                  <span className="text-white">"</span>
+                  <span className="text-cyan-300">text/javascript</span>
+                  <span className="text-white">"</span>
+                </span>
+                <span className="text-yellow-500">
+                  {' '}
+                  src=
+                  <span className="text-white">"</span>
+                  <span className="text-cyan-300">
+                    http://localhost:3000/Modal
+                    {modalID}
+                    /modal
+                    {modalID}
+                    .js
+                  </span>
+                  <span className="text-white">"&gt;&lt;/</span>
+                  <span className="text-yellow-500">script</span>
+                </span>
+                &gt;
+              </span>
+              <br />
+              <span className="text-white">&lt;</span>
+              <span className="text-yellow-500">script</span>
+              <span className="text-white">&gt;</span>
+              <span className="text-gray-300">{generateCode()}</span>
+              <span className="text-white">&lt;/</span>
+              <span className="text-yellow-500">script</span>
+              <span className="text-white">&gt;</span>
             </p>
             <button
               type="button"
               onClick={handleCopy}
-              className="base-color-bg text-white text-md font-[Poppins] px-3 py-1 rounded-full absolute bottom-3 right-3 base-color-shadow"
+              className="bg-purple-500 text-white text-md font-[Poppins] px-3 py-1 rounded-full absolute bottom-3 right-3 drop-shadow-lg"
             >
               Copy the code
             </button>

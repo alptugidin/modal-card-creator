@@ -20,7 +20,8 @@
     "jsx-a11y/control-has-associated-label": "off",
     "no-underscore-dangle": "off",
     "react/no-array-index-key": "off",
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "react/no-unstable-nested-components": "off"
   },
   "plugins": ["react"]
 }

@@ -37,6 +37,9 @@ const Modal3 = ({
         transformOrigin: 'top right',
       } as CSSProperties}
     >
+      <button type="button" className={style.cancel}>
+        <img src="/cancel.svg" alt="cancel" />
+      </button>
       <div className={style.textDiv}>
         <p>{editedText[0] || Modal3Strings[0]}</p>
         <p>{editedText[1] || Modal3Strings[1]}</p>
