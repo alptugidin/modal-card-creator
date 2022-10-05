@@ -22,9 +22,6 @@ const Modal1 = ({
         '--themeColor': !inStory ? colors.themeColor : themeColor,
         transform: `scale(${size})`,
         transformOrigin: 'top right',
-        // top: '0',
-        // right: '0',
-        // position: inStory ? 'fixed' : '',
       } as CSSProperties}
     >
 
@@ -57,4 +54,3 @@ const Modal1 = ({
   );
 };
 export default Modal1;
-//                        {editedText[0] || Modal1Strings[0]}
