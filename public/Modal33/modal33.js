@@ -52,8 +52,10 @@ const createAndStart = (htmlCode) => {
     document.getElementsByTagName('BODY')[0].innerHTML += htmlCode;
     userActivities(window.userData.id);
     document.getElementById('cancelButton').addEventListener('click', () => {
+      if (window.userData.sendForm || window.userData.sendClick) {
+        post();
+      }
       document.getElementById('cancelButton').parentElement.remove();
-      post();
     });
   };
 
@@ -112,7 +114,9 @@ transform:scale(${scale()});transform-origin:${origin()}">
 </svg>
 </button>
 	<div class="Modal33_divLeft___qKIH">
-		<div><img width="370" height="400" src="http://localhost:3000/Modal33/img.png" alt="img " /></div>
+		<div>
+		<img style="border-top-right-radius: .75rem;border-top-left-radius: .75rem" width="370" height="400" src="${window.userData.img.length > 1 ? window.userData.img : 'http://localhost:3000/Modal33/img.png'}" alt="img " />
+		</div>
 	</div>
 	<div class="Modal33_divRight__iXZ49">
 		<div class="Modal33_textDiv__jEwXT" style="--textColor:#000000">

@@ -27,15 +27,15 @@ const Content = () => {
           <div className="flex flex-col gap-4 mt-3">
             {/* @ts-ignore */}
             {[...Array(editableTextCount).keys()].map((i) => (
-              <EditInput
-                key={i.toString()}
-                // edit={(value:string) => dispatch(updateText({ index: i, value }))}
-                edit={(value:string) => dispatch(updateText({ index: i, name: value }))}
-                placeholder={editableTexts[i]}
-              />
+              <div key={i.toString()} id={`content-input${i}`}>
+                <EditInput
+                  edit={(value:string) => dispatch(updateText({ index: i, name: value }))}
+                  placeholder={editableTexts[i]}
+                />
+              </div>
             ))}
           </div>
-          <ImageUploader type="Image" />
+          <ImageUploader type="Logo" />
         </div>
       </div>
     </div>

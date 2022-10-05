@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export const appearanceSlice = createSlice({
   name: 'appearance',
   initialState: {
-    size: 'Medium',
+    size: '1',
+    sizeText: 'Medium',
     position: 4,
     activeColor: '#7D4AEA',
     imgUrl: '',
@@ -19,10 +20,13 @@ export const appearanceSlice = createSlice({
     changeSize: (state, action:PayloadAction<number>) => {
       if (action.payload === 0) {
         state.size = '0.8';
+        state.sizeText = 'Small';
       } else if (action.payload === 1) {
         state.size = '1';
+        state.sizeText = 'Medium';
       } else {
         state.size = '1.1';
+        state.sizeText = 'Large';
       }
     },
 

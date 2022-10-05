@@ -38,7 +38,7 @@ const Home: NextPageWithLayout = () => {
             <SettingsAndCode />
           </div>
           <div className="basis-2/3 relative pb-20">
-            <div className="sticky h-auto top-2 w-full flex justify-end">
+            <div id="sticky" className="sticky h-auto top-10 w-full flex justify-end">
               <Suspense fallback={<p>Loading...</p>}>
                 {DynamicRender()}
               </Suspense>

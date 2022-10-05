@@ -31,7 +31,7 @@ const ImageUploader = ({ type }:ImageUploaderProps) => {
       })
         .then((res) => {
           setSrc(res.data.data.thumb);
-          if (type === 'image') {
+          if (type === 'Image') {
             dispatch(setImgUrl(res.data.data.thumb));
           }
         }).catch((err) => {

@@ -16,8 +16,6 @@ const Modal13 = lazy(() => import('./Modal13'));
 const Modal14 = lazy(() => import('./Modal14'));
 const Modal15 = lazy(() => import('./Modal15'));
 const Modal16 = lazy(() => import('./Modal16'));
-// const Modal19 = lazy(() => import('./Modal7'));
-// const Modal18 = lazy(() => import('./Modal8'));
 const Modal19 = lazy(() => import('./Modal19'));
 const Modal20 = lazy(() => import('./Modal20'));
 const Modal21 = lazy(() => import('./Modal21'));

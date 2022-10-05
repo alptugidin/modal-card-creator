@@ -29,7 +29,7 @@ const TargetingRules = () => {
       <div className="flex">
         <div className="mt-7 w-full pr-5">
           <div className="flex items-center justify-between">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.visitorDevice.all ? 'opacity-30' : ''}`}>Visitor Device</p>
+            <p id="visitor-device" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.visitorDevice.all ? 'opacity-30' : ''}`}>Visitor Device</p>
             <Toggle
               toggleState={targeting.visitorDevice.all}
               setToggle={() => dispatch(isVisitorDevice())}
@@ -54,46 +54,52 @@ const TargetingRules = () => {
             </div>
           </div>
           <div className="flex items-center justify-between mt-7 ">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.seconds.isActive ? 'opacity-30' : ''}`}>After X Seconds</p>
+            <p id="seconds" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.seconds.isActive ? 'opacity-30' : ''}`}>After X Seconds</p>
             <Toggle
               toggleState={targeting.seconds.isActive}
               setToggle={() => dispatch(isActiveSeconds())}
             />
           </div>
           <div className={`transition-all ${!targeting.seconds.isActive ? 'opacity-30 pointer-events-none' : ''}`}>
-            <EditInput
-              type="number"
-              edit={(value:string) => dispatch(setActiveSecondsValue(value))}
-            />
+            <div id="seconds-input">
+              <EditInput
+                type="number"
+                edit={(value:string) => dispatch(setActiveSecondsValue(value))}
+              />
+            </div>
           </div>
           <div className="flex items-center justify-between mt-7">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.scroll.isActive ? 'opacity-30' : ''}`}>After % Scroll</p>
+            <p id="scroll" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.scroll.isActive ? 'opacity-30' : ''}`}>After % Scroll</p>
             <Toggle
               toggleState={targeting.scroll.isActive}
               setToggle={() => dispatch(isActiveScroll())}
             />
           </div>
           <div className={`transition-all ${!targeting.scroll.isActive ? 'opacity-30 pointer-events-none' : ''}`}>
-            <EditInput
-              type="number"
-              edit={(value:string) => dispatch(setScrollValue(value))}
-            />
+            <div id="scroll-input">
+              <EditInput
+                type="number"
+                edit={(value:string) => dispatch(setScrollValue(value))}
+              />
+            </div>
           </div>
           <div className="flex items-center justify-between mt-7">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.source.isActive ? 'opacity-30' : ''}`}>Traffic Source</p>
+            <p id="traffic-source" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.source.isActive ? 'opacity-30' : ''}`}>Traffic Source</p>
             <Toggle
               toggleState={targeting.source.isActive}
               setToggle={() => dispatch(isActiveSource())}
             />
           </div>
           <div className={`transition-all ${!targeting.source.isActive ? 'opacity-30 pointer-events-none' : ''}`}>
-            <EditInput
-              edit={(value:string) => dispatch(setSource(value))}
-              placeholder="Enter your traffinc source domain"
-            />
+            <div id="source-input">
+              <EditInput
+                edit={(value:string) => dispatch(setSource(value))}
+                placeholder="Enter your traffinc source domain"
+              />
+            </div>
           </div>
           <div className="flex items-center justify-between mt-20">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.languages.isActive ? 'opacity-30' : ''}`}>Browser Language</p>
+            <p id="browser-language" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.languages.isActive ? 'opacity-30' : ''}`}>Browser Language</p>
             <Toggle
               toggleState={targeting.languages.isActive}
               setToggle={() => dispatch(isActiveLanguages())}
@@ -104,7 +110,7 @@ const TargetingRules = () => {
             {/* <SelectedLanguages /> */}
           </div>
           <div className="flex items-center justify-between mt-20">
-            <p className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.exitIntent ? 'opacity-30' : ''}`}>Exit Intent Targeting</p>
+            <p id="exit-intent" className={`font-[Poppins] tracking-tighter font-semibold text-sm transition-all ${!targeting.exitIntent ? 'opacity-30' : ''}`}>Exit Intent Targeting</p>
             <Toggle
               toggleState={targeting.exitIntent}
               setToggle={() => dispatch(setExitIntent())}

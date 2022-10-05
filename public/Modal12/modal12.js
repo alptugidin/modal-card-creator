@@ -52,8 +52,10 @@ const createAndStart = (htmlCode) => {
     document.getElementsByTagName('BODY')[0].innerHTML += htmlCode;
     userActivities(window.userData.id);
     document.getElementById('cancelButton').addEventListener('click', () => {
+      if (window.userData.sendForm || window.userData.sendClick) {
+        post();
+      }
       document.getElementById('cancelButton').parentElement.parentElement.remove();
-      post();
     });
   };
 
@@ -106,7 +108,9 @@ window.onload = () => {
 --borderColor:${window.userData.color.border};
 --themeColor:${window.userData.color.theme};
 transform:scale(${scale()});transform-origin:${origin()}">
-	<div class="Modal12_imgDiv__6sIZ5"><img width="550" height="563" src="http://localhost:3000/Modal12/img.png" alt="" /></div>
+	<div class="Modal12_imgDiv__6sIZ5">
+	<img style="border-top-right-radius: .75rem;border-top-left-radius: .75rem" width="550" height="563" src="${window.userData.img.length > 1 ? window.userData.img : 'http://localhost:3000/Modal12/img.png'}" alt="" />
+	</div>
 	<div class="Modal12_mainDiv__Myyb9">
 		<button id="cancelButton" type="button" class="Modal1_cancel__XIL9t">
 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">

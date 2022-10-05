@@ -31,10 +31,11 @@ const ModalCardGenerator = () => {
         />
         <p className="font-[Poppins] font-bold text-xl tracking-tight">Choose your template</p>
       </div>
-      <div className="flex flex-wrap gap-[30px] justify-center mt-8">
+      <div id="template-div" className="flex flex-wrap gap-[30px] justify-center mt-8">
         {[...Array.from(Array(12).keys())].map((i) => (
           <div
             key={i.toString()}
+            id={`template${i + 1 + (Number(page) - 1) * 12}`}
             className="w-[276px] h-[200px] bg-gray-200 border border-gray-300 rounded-xl flex justify-center items-center relative group"
           >
             <div className="bg-purple-500 h-full w-full rounded-xl absolute bg-opacity-50 flex items-center transition-all justify-center opacity-0 group-hover:opacity-100">
@@ -43,11 +44,16 @@ const ModalCardGenerator = () => {
                 spy
                 smooth
                 duration={500}
-                onClick={() => dispatch(setActiveModal((i + 1) + (12 * (Number(page) - 1))))}
+
               >
-                <div className="bg-white px-7 font-semibold py-3 shadow-lg rounded-lg text-purple-600 cursor-pointer">
+                <button
+                  data-testid="select-template-test"
+                  onClick={() => dispatch(setActiveModal((i + 1) + (12 * (Number(page) - 1))))}
+                  type="button"
+                  className="select-template-test bg-white px-7 font-semibold py-3 shadow-lg rounded-lg text-purple-600 cursor-pointer"
+                >
                   Select Template
-                </div>
+                </button>
               </Link>
             </div>
             <img src={`/previews/p${(i + 1) + (12 * (Number(page) - 1))}.png`} alt="" />
@@ -63,6 +69,7 @@ const ModalCardGenerator = () => {
             <button
               key={i.toString()}
               type="button"
+              id={`page${i}`}
               onClick={changePage}
               className={`${page === i.toString() ? 'bg-white' : 'text-gray-500'} text-sm rounded-md leading-[42px] w-[42px] h-[42px] text-center font-[Inter] font-semibold`}
             >

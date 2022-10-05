@@ -65,6 +65,7 @@ const Appearance = () => {
                   <button
                     key={el}
                     type="button"
+                    id={sizes[index]}
                     onClick={() => handleChangeSize(index)}
                     className={`${el === size ? 'bg-white' : 'text-gray-500'} text-xs rounded-lg leading-[42px] px-5 h-[42px] text-center font-[Inter] font-semibold`}
                   >
@@ -85,6 +86,7 @@ const Appearance = () => {
                   type="button"
                   key={pos.toString()}
                   data-pos={pos}
+                  id={`pos${pos.toString()}`}
                   onClick={handleChangePosition}
                   className={`w-[24px] h-[15px] border border-gray-300 ${positionRadius(pos)} ${pos === position && 'bg-purple-500'}`}
                 />
@@ -92,10 +94,11 @@ const Appearance = () => {
             </div>
 
             <p className="font-[Inter] font-medium mt-7">Colors</p>
-            <div className="flex gap-2 mt-3">
+            <div className="edit-input flex gap-2 mt-3">
               {Object.entries(colors).map((col, i) => (
                 <input
                   type="color"
+                  id={`input${i}`}
                   data-color={col[0]}
                   onClick={() => {}}
                   key={i.toString()}
@@ -106,7 +109,7 @@ const Appearance = () => {
               ))}
 
             </div>
-            <ImageUploader type="Logo" />
+            <ImageUploader type="Image" />
 
           </div>
         </div>

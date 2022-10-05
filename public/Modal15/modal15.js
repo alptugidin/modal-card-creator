@@ -52,8 +52,10 @@ const createAndStart = (htmlCode) => {
     document.getElementsByTagName('BODY')[0].innerHTML += htmlCode;
     userActivities(window.userData.id);
     document.getElementById('cancelButton').addEventListener('click', () => {
+      if (window.userData.sendForm || window.userData.sendClick) {
+        post();
+      }
       document.getElementById('cancelButton').parentElement.remove();
-      post();
     });
   };
 

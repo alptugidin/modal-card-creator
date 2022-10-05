@@ -17,11 +17,12 @@ const EditInput = ({
   return (
     <form
       className="mt-3"
+      onSubmit={(e) => e.preventDefault()}
     >
       <input
         type={type}
         onChange={(e) => edit(e.target.value)}
-        className="border outline-none rounded-lg p-1 w-full focus:border-purple-500 focus:outline-2 focus:outline-purple-400/40 pl-3"
+        className="border outline-none rounded-lg p-1 w-full focus:border-purple-500 pl-3"
         placeholder={placeholder}
       />
     </form>
