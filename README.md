@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## <code>npm run install</code></br>
 
-First, run the development server:
+## <code>npm run dev</code></br>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## <code>npm run build</code></br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## <code>npm run test</code></br>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## <code>npm run storybook</code></br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+https://modal-card-creator-eight.vercel.app/
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Choose the template...
+![Ekran görüntüsü 2022-10-05 232133](https://user-images.githubusercontent.com/31244930/194156665-55dfce4f-31e4-4470-bf25-56332fb34349.png)
 
-## Learn More
+## ...change color, size, and position
+![Ekran görüntüsü 2022-10-05 232117](https://user-images.githubusercontent.com/31244930/194156858-e83a8786-1a5b-4162-a6de-e2b1ed728afe.png)
 
-To learn more about Next.js, take a look at the following resources:
+## ..and texts
+![Ekran görüntüsü 2022-10-05 232427](https://user-images.githubusercontent.com/31244930/194157296-a1caaa4a-7ace-48a5-b369-6c28feeb15f0.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ..add more customization
+![Ekran görüntüsü 2022-10-05 232214](https://user-images.githubusercontent.com/31244930/194157734-ee97a5ad-ff62-4aa2-aaec-edd66ef72bc6.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## ...and it's done! Your script is ready! Just copy, and paste before the < /body > tag. Zero dependecy, no webserver required!
+![Ekran görüntüsü 2022-10-05 232239](https://user-images.githubusercontent.com/31244930/194157953-6c320d69-b99e-4a61-ba1d-4406fa80af20.png)
