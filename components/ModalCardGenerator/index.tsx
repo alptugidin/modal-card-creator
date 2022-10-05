@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
+import Image from 'next/image';
 import { useAppDispatch } from '../../redux/store';
 import { setActiveModal } from '../../features/modalCreateSlice';
 
@@ -38,7 +39,7 @@ const ModalCardGenerator = () => {
             id={`template${i + 1 + (Number(page) - 1) * 12}`}
             className="w-[276px] h-[200px] bg-gray-200 border border-gray-300 rounded-xl flex justify-center items-center relative group"
           >
-            <div className="bg-purple-500 h-full w-full rounded-xl absolute bg-opacity-50 flex items-center transition-all justify-center opacity-0 group-hover:opacity-100">
+            <div className="bg-purple-500 h-full w-full rounded-xl z-30 absolute bg-opacity-50 flex items-center transition-all justify-center opacity-0 group-hover:opacity-100">
               <Link
                 to="Appearance"
                 spy
@@ -56,7 +57,13 @@ const ModalCardGenerator = () => {
                 </button>
               </Link>
             </div>
-            <img src={`/previews/p${(i + 1) + (12 * (Number(page) - 1))}.png`} alt="" />
+            <Image
+              width="170"
+              height="156"
+              objectFit="contain"
+              src={`/previews/p${(i + 1) + (12 * (Number(page) - 1))}.png`}
+              alt=""
+            />
           </div>
         ))}
       </div>
