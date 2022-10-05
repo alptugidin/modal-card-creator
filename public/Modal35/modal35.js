@@ -118,13 +118,13 @@ transform:scale(${scale()});transform-origin:${origin()}">
 		<p>${window.userData.content[1]}</p>
 	</div>
 	<div class="Modal35_btnDiv__vJfAo">
-		<button type="button" class="Modal35_fb__IP3ij"><img src="http://localhost:3000/Modal35/img.png" width="32" height="32" alt="facebook" />
+		<button type="button" class="Modal35_fb__IP3ij"><img src="https://modal-card-creator-eight.vercel.app/Modal35/img.png" width="32" height="32" alt="facebook" />
 			<p>Facebook</p>
 		</button>
-		<button type="button" class="Modal35_pt__CGDEN"><img src="http://localhost:3000/Modal35/img_1.png" width="32" height="32" alt="pinterest" />
+		<button type="button" class="Modal35_pt__CGDEN"><img src="https://modal-card-creator-eight.vercel.app/Modal35/img_1.png" width="32" height="32" alt="pinterest" />
 			<p>Pinterest</p>
 		</button>
-		<button type="button" class="Modal35_tw___YbMc"><img src="http://localhost:3000/Modal35/img_2.png" width="32" height="32" alt="twitter" />
+		<button type="button" class="Modal35_tw___YbMc"><img src="https://modal-card-creator-eight.vercel.app/Modal35/img_2.png" width="32" height="32" alt="twitter" />
 			<p>Twitter</p>
 		</button>
 	</div>

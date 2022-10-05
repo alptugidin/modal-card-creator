@@ -124,7 +124,7 @@ transform:scale(${scale()});transform-origin:${origin()}">
 		<p>${window.userData.content[1]}</p>
 	</div>
 	<div class="Modal21_textDiv2__8cNCP">
-		<div class="Modal21_firstTextDiv__gMDqH"><img src="http://localhost:3000/Modal21/img.png" alt="" />
+		<div class="Modal21_firstTextDiv__gMDqH"><img src="https://modal-card-creator-eight.vercel.app/Modal21/img.png" alt="" />
 			<p>${window.userData.content[2]}</p>
 		</div>
 		<div class="Modal21_sum__rca6F">
@@ -132,7 +132,7 @@ transform:scale(${scale()});transform-origin:${origin()}">
 		</div>
 	</div>
 	<div class="Modal21_textDiv2__8cNCP">
-		<div class="Modal21_firstTextDiv__gMDqH"><img src="http://localhost:3000/Modal21/img_1.png" alt="" />
+		<div class="Modal21_firstTextDiv__gMDqH"><img src="https://modal-card-creator-eight.vercel.app/Modal21/img_1.png" alt="" />
 			<p>${window.userData.content[4]}</p>
 		</div>
 		<div class="Modal21_sum__rca6F">

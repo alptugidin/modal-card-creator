@@ -109,7 +109,7 @@ const SettingsAndCode = () => {
                   src=
                   <span className="text-white">"</span>
                   <span className="text-cyan-300">
-                    http://localhost:3000/Modal
+                    https://modal-card-creator-eight.vercel.app/Modal
                     {modalID}
                     /modal
                     {modalID}

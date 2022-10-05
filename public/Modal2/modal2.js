@@ -114,7 +114,7 @@ transform:scale(${scale()});transform-origin:${origin()}">
 </svg>
 </button>
 	<div class="Modal2_topDiv__qGx8F">
-	<img style="border-top-left-radius: .75rem; border-top-right-radius: .75rem" width="480" height="300" src="${window.userData.img.length > 1 ? window.userData.img : 'http://localhost:3000/Modal2/img.png'}" alt="" />
+	<img style="border-top-left-radius: .75rem; border-top-right-radius: .75rem" width="480" height="300" src="${window.userData.img.length > 1 ? window.userData.img : 'https://modal-card-creator-eight.vercel.app/Modal2/img.png'}" alt="" />
 	</div>
 	<div class="Modal2_bottomDiv__LMfQt">
 		<div class="Modal2_textDiv__hHxv4">
