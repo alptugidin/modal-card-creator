@@ -23,5 +23,5 @@ https://modal-card-creator-eight.vercel.app/
 ## ..add more customization
 ![Ekran görüntüsü 2022-10-05 232214](https://user-images.githubusercontent.com/31244930/194157734-ee97a5ad-ff62-4aa2-aaec-edd66ef72bc6.png)
 
-## ...and it's done! Your popup is ready! </br> Just copy, and paste before the < /body > tag. Zero dependency, no webserver required!
+## ...and it's done! Your popup is ready! </br> Just copy, and paste behind the < /body > tag. Zero dependency, no webserver required!
 ![Ekran görüntüsü 2022-10-05 232239](https://user-images.githubusercontent.com/31244930/194157953-6c320d69-b99e-4a61-ba1d-4406fa80af20.png)
